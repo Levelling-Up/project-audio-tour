@@ -1,4 +1,4 @@
-### How to collaborate in one repo with branches
+## How to collaborate in one repo with branches
 
 *(in your code, this Markdown file looks strange with the use of * etc. Markdown is a language that you can use to write text with some layout, for example a README.md. In the repo, you will see this as normal text, without the * and [] etc.)*
 
@@ -6,7 +6,7 @@
 
 Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
 
-#### Basic instructions
+### Basic instructions
 * everyone clones the project repository
 * after cloning, you should have a main branch and a develop branch
 * our main branch is not touched: members can make pull requests and these will be approved centrally when we are absolutely sure a feature/change is working OK
@@ -14,7 +14,7 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: i
 * we work with the develop branch on a day-to-day basis
 * we will try to **communicate as much as possible when merging is done** so that everyone is aware the code on develop has changed and they have to do a pull request
 
-#### Branches
+### Branches
 
 **Important: the work on your own branch always starts with a pull request from develop**: in this way you always have the latest code, and you will avoid coding something that creates problems with the code in the develop branch because other members may have merged something  
 
@@ -34,7 +34,7 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: i
 
 ---
 
-#### How to keep your branch up to date:
+### How to keep your branch up to date:
 1. the `develop` branch is our working branch, as explained above
 2. when you start workin on your branch, you **first pull from develop** as follows:
    1. first check that you are on your own branch: **git branch** (you will see a `*` in front of the branch you are currently on). You type `q` to get out of that terminal screen
@@ -43,7 +43,7 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: i
    4. to be able to write in that screen, first type `i` (for insert)  
    5. it will look strange because you will be typing in the text that is there, no worries, go ahead  
    6. when you have typed your commit message, you can get out of that screen by pressing the `escape` key and then `:wq` (basically means: write-quit)
-  7. this should bring you back to your normal terminal screen, and a message that you are up to date (you can check this using **git status**)  
+   7. this should bring you back to your normal terminal screen, and a message that you are up to date (you can check this using **git status**)  
 3. always check you are working in **your own branch** when you start coding after pulling from develop
 4. you commit your changes to your own branch on GitHub
 5. when you are ready with your feature, you can make a pull request to propose merging your code into the develop branch
@@ -51,4 +51,4 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: i
 7. the pull request will be checked and commented/approved by the repository manager
 8. if your feature/change/fix is approved, you can delete your branch if you like (not obligatory)
 9. you will create a new branch with *feature-name-yourInitials* to start something new, and follow the same process as described above
-10. **Important:** if you do not delete the branch, make sure you don't confuse it with a new branch you create. You can make sure by using **git branch** to get a list of all your branches, and check on which branch the * is. Use **git checkout *branch-name*** to move to the correct branch.
+**Important:** if you do not delete the branch, make sure you don't confuse it with a new branch you create. You can make sure by using **git branch** to get a list of all your branches, and check on which branch the * is. Use **git checkout *branch-name*** to move to the correct branch.
