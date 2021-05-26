@@ -4,7 +4,6 @@
 
 <img src="/github_meme.jpg" width="350"  />
 
-Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branching *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
 
 ### Basic instructions
 * everyone clones the project repository
@@ -13,6 +12,8 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branch
 * background material, guidelines and meeting documents are the only files that will be added to the main branch without consultation with the group but with clear commit messages
 * we work with the develop branch on a day-to-day basis
 * we will try to **communicate as much as possible when merging is done** so that everyone is aware the code on develop has changed and they have to do a pull request
+
+---
 
 ### Branches
 
@@ -51,3 +52,11 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branch
 9. you will create a new branch with *feature-name-yourInitials* to start something new, and follow the same process as described above  
 
 **Important:** if you do not delete the branch, make sure you don't confuse it with a new branch you create. You can make sure by using **git branch** to get a list of all your branches, and check on which branch the * is. Use **git checkout *branch-name*** to move to the correct branch.
+
+Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branching *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
+
+Useful [article](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/) on commit messages
+
+Useful [article](https://devconnected.com/how-to-push-git-branch-to-remote/) on pushing to remote
+
+Useful [article](https://www.geeksforgeeks.org/merge-conflicts-and-how-to-handle-them/) about merge conflicts
