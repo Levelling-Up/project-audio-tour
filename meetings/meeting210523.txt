@@ -1,0 +1,51 @@
+Audio Tours Team Meeting
+
+Date: Sunday 23rd May
+Time: 6pm - 8pm (BST) 7pm - 9pm (CET)
+Attendees: Erica, Frida, Henriette, Sename, Iwona
+Meeting Chair: Henriette
+
+Meeting Objective
+Define scope of our MVP, confirm the tech stack and assign roles to team members. Also we will set milestones for the project.
+
+Agenda
+Before the meeting all attendees will have read the links and the client brief provided in the repo. They will
+have forked the project and successfully deployed the app to Heroku. They will have made at least one change to the app.
+Help will be available 1-2-1 for anyone who is stuck or has questions.
+Anyone who hasn't completed the above will be asked to leave the meeting.
+
+1) Presentation of the brief: Erica - 5mins
+2) Presentation of other background and similar projects: 15 mins: split between team members
+3) Presentation of recommendations given by Codebar coach: any team member that was in the coaching session
+4) Decide on the tech stack
+5) Assign remaining non-tech roles. 
+6) Assign tech roles i.e. front-end, back-end, CI/CD, tests
+
+Notes & Decisions
+-----------------
+Re. meetings and task division:
+- meeting chair will be rotated among the members of the team
+- the person who chairs the meeting will prepare the agenda (all members can propose agenda items)
+- the chair also adds notes to the agenda after the meeting (use this template)
+- new members can join but will only listen during meetings, and they have to read up and get briefed before they can have any input
+- Frida is responsible for the Trello board and for the backend
+- Henriette is responsible for the GitHub repo and will work on the frontend
+- Erica is responsible for the client contact and will work on the frontend
+
+Re. tech stack:
+- frontend: HTML/CSS, JavaScript, React Native
+- backend: NodeJS, Express, PostgreSQL
+
+Re. scope of project:
+- the requirements that the client has presented in their brief are not in line with what we can/want to do; based on the advice from Andy and our own preferences, we decided to scale down
+- the project has been reduced to 8 elements in the MVP
+- the deadline is the end of July
+- Erica will discuss this with the client and offer them to use this product if they want, possibly they can build on that in the future
+
+Next Steps
+- next meeting on Sunday May 30, Sename will chair ??? (I am not sure, have to check my notes)
+- current agenda items: Erica will look at testing; we will check out React Native (except Frida who will be moving this week); how to work with Git/GitHub
+- Erica will be in touch with the client
+-
+-
+-
