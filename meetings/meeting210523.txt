@@ -32,13 +32,15 @@ Re. meetings and task division:
 - Henriette is responsible for the GitHub repo and will work on the frontend
 - Erica is responsible for the client contact and will work on the frontend
 
+Re. tech stack:
+- frontend: HTML/CSS, JavaScript, React Native
+- backend: NodeJS, Express, PostgreSQL
 
 Re. scope of project:
 - the requirements that the client has presented in their brief are not in line with what we can/want to do; based on the advice from Andy and our own preferences, we decided to scale down
 - the project has been reduced to 8 elements in the MVP
 - the deadline is the end of July
 - Erica will discuss this with the client and offer them to use this product if they want, possibly they can build on that in the future
-
 
 Next Steps
 - next meeting on Sunday May 30, Sename will chair ??? (I am not sure, have to check my notes)
