@@ -2,7 +2,7 @@ Audio Tours Team Meeting
 
 Date: Sunday 23rd May
 Time: 6pm - 8pm (BST) 7pm - 9pm (CET)
-Attendees:
+Attendees: Erica, Frida, Henriette, Sename, Iwona
 Meeting Chair: Henriette
 
 Meeting Objective
@@ -33,11 +33,15 @@ Re. meetings and task division:
 - Erica is responsible for the client contact and will work on the frontend
 
 Re. scope of project:
-- the requirements that the client has presented in their brief are not in line with what we can/want to do
-- we scale down the project to 8 elements in the MVP
+- the requirements that the client has presented in their brief are not in line with what we can/want to do; based on the advice from Andy and our own preferences, we decided to scale down
+- the project has been reduced to 8 elements in the MVP
+- the deadline is the end of July
+- Erica will discuss this with the client and offer them to use this product if they want, possibly they can build on that in the future
 
 
 Next Steps
+- next meeting on Sunday May 30, Sename will chair ??? (I am not sure, have to check my notes)
+- current agenda items: Erica will look at testing; we will check out React Native (except Frida who will be moving this week); how to work with Git/GitHub
 - Erica will be in touch with the client
 -
 -
