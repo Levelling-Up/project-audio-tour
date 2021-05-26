@@ -22,13 +22,23 @@ Anyone who hasn't completed the above will be asked to leave the meeting.
 6) Assign tech roles i.e. front-end, back-end, CI/CD, tests
 
 Notes & Decisions
--
--
--
--
+-----------------
+Re. meetings and task division:
+- meeting chair will be rotated among the members of the team
+- the person who chairs the meeting will prepare the agenda (all members can propose agenda items)
+- the chair also adds notes to the agenda after the meeting (use this template)
+- new members can join but will only listen during meetings, and they have to read up and get briefed before they can have any input
+- Frida is responsible for the Trello board and for the backend
+- Henriette is responsible for the GitHub repo and will work on the frontend
+- Erica is responsible for the client contact and will work on the frontend
+
+Re. scope of project:
+- the requirements that the client has presented in their brief are not in line with what we can/want to do
+- we scale down the project to 8 elements in the MVP
+
 
 Next Steps
--
+- Erica will be in touch with the client
 -
 -
 -
