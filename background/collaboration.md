@@ -4,7 +4,7 @@
 
 <img src="/github_meme.jpg" width="350"  />
 
-Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
+Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branching *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
 
 ### Basic instructions
 * everyone clones the project repository
@@ -29,8 +29,6 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: i
   * **git push -u origin *name*** Explanation: `-u` means *upstream*: you make the same branch remotely, and this is why you use `origin` and the **exact name** of your branch
 * in case you are interested: you can also push from your own local branch to a different remote branch. Use **git push <remote> <your_local_branch>:<remote_branch_name>**
 * read about [branching](https://stackoverflow.blog/2021/04/05/a-look-under-the-hood-how-branches-work-in-git/?utm_source=Iterable&utm_medium=email&utm_campaign=the_overflow_newsletter)
-  
-  
 
 ---
 
@@ -50,5 +48,6 @@ Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) *(Note: i
 6. the pull request needs to have a **clear message explaining what the feature/change/fix is**
 7. the pull request will be checked and commented/approved by the repository manager
 8. if your feature/change/fix is approved, you can delete your branch if you like (not obligatory)
-9. you will create a new branch with *feature-name-yourInitials* to start something new, and follow the same process as described above
+9. you will create a new branch with *feature-name-yourInitials* to start something new, and follow the same process as described above  
+
 **Important:** if you do not delete the branch, make sure you don't confuse it with a new branch you create. You can make sure by using **git branch** to get a list of all your branches, and check on which branch the * is. Use **git checkout *branch-name*** to move to the correct branch.
