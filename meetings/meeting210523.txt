@@ -45,8 +45,8 @@ Re. scope of project:
 - Erica will discuss this with the client and offer them to use this product if they want; they can build on what we will deliver
 
 Next Steps
-- next meeting on Sunday May 30, Sename will chair ??? (I am not sure, have to check my notes)
-- current agenda items: Erica will look at testing; we will check out React Native (except Frida who will be moving this week); how to work with Git/GitHub
+- next meeting on Sunday May 30, Sename will chair and prepare the agenda
+- current agenda items: 1) Erica will look at testing; 2) we will check out React Native (except Frida who will be moving this week); 3) how to work with Git/GitHub: agree on worflow
 - Erica will be in touch with the client
 -
 -
