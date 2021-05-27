@@ -1,6 +1,7 @@
 ## How to collaborate in one repo with branches
 
-*(in your code, this Markdown file looks strange with the use of * etc. Markdown is a language that you can use to write text with some layout, for example a README.md. In the repo, you will see this as normal text, without the * and [] etc.)*
+*(in your VSC code editor, this Markdown file looks strange with the use of * and ` etc. Markdown is a language that you can use to write text with some layout, for example a README.md. In the repo, you will see this as normal text, without the * and [] etc.)*.
+---
 
 <img src="/github_meme.jpg" width="350"  />
 
