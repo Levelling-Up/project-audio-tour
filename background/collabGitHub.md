@@ -55,7 +55,7 @@
 
 **Important:** if you do not delete the branch, make sure you don't confuse it with a new branch you create. You can make sure by using **git branch** to get a list of all your branches, and check on which branch the `*` is. Use **git checkout *branch-name*** to move to the correct branch.
 
-<img src="/backgroun/gitPush.jpg" width="450" />
+<img src="/background/gitPush.jpg" width="450" />
 
 Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branching *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
 
