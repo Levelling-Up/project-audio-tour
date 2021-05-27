@@ -3,7 +3,7 @@
 *(in your VSC code editor, this Markdown file looks strange with the use of * and ` etc. Markdown is a language that you can use to write text with some layout, for example a README.md. In the repo, you will see this as normal text, without the * and [] etc.)*.
   
 
-<img src="/github_meme.jpg" width="350"  />
+<img src="/github_meme.jpg" width="400"  />
 
 
 ### Basic instructions
@@ -54,6 +54,8 @@
 9. you will create a new branch with *feature-name-yourInitials* to start something new, and follow the same process as described above  
 
 **Important:** if you do not delete the branch, make sure you don't confuse it with a new branch you create. You can make sure by using **git branch** to get a list of all your branches, and check on which branch the `*` is. Use **git checkout *branch-name*** to move to the correct branch.
+
+<img src="background/gitPush.jpg" width="350" />
 
 Useful [article](https://faun.pub/collaborating-on-github-22fd5886fce) on branching *(Note: in the article, forking is used - we will not fork the repo but clone it directly)*
 
