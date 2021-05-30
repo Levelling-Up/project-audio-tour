@@ -19,7 +19,6 @@ Anyone who hasn't completed the above will be asked to leave the meeting.
 
 Notes & Decisions
 -----------------
-Re. meetings and task division:
 - 
 - 
 - 
@@ -29,16 +28,6 @@ Re. meetings and task division:
 - 
 - 
 
-Re. tech stack:
-- frontend: HTML/CSS, JavaScript, React Native (Erica, Iwona, Henriette)
-- backend: NodeJS, Express, PostgreSQL (Frida, Sename)
-
-Re. scope of project:
-- the requirements that the client has presented in their brief are not in line with what we can/want to do; based on the advice from Andy and our own preferences, we decided to scale down
-- the project has been reduced to 8 elements in the MVP
-- the estimated time investment is 30 to 40 hours per week for a team of five people
-- the deadline is the 25th of July
-- Erica will discuss this with the client and offer them to use this product if they want; they can build on what we will deliver
 
 Next Steps
 - 
