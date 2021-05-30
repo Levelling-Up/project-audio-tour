@@ -1,0 +1,38 @@
+Audio Tours Team Meeting
+
+Date: Sunday 30th May
+Time: 6.15pm - 8.15pm (BST) 7.15pm - 9.15pm (CET)
+Attendees: 
+Meeting Chair: Sénamé
+
+
+Agenda
+Before the meeting all attendees will have read the links and the client brief provided in the repo. They will
+have forked the project and successfully deployed the app to Heroku. 
+Help will be available 1-2-1 for anyone who is stuck or has questions.
+Anyone who hasn't completed the above will be asked to leave the meeting.
+
+1) Tech stack update (frontend)
+2) How to work with Git/Github 
+3) Review TDD - Is it a possibility?
+4) Introduction from new participant
+
+Notes & Decisions
+-----------------
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+
+
+Next Steps
+- 
+- 
+- 
+-
+-
+-
