@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import welcomeImage from "./../assets/images/welcomeImage.jpg";
 
 function Welcome(props) {
   return (
@@ -7,9 +8,10 @@ function Welcome(props) {
       <Logo>
         <h3>Audio Tour Logo</h3>
       </Logo>
-      <Welcome>
-        <h2>Welcome to Audio Tours</h2>
-      </Welcome>
+      <WelcomeContainer>
+        <WelcomeText>Welcome to Audio Tours</WelcomeText>
+        <WelcomeImage src={welcomeImage}></WelcomeImage>
+      </WelcomeContainer>
     </Container>
   );
 }
@@ -27,11 +29,35 @@ const Logo = styled(Container)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
-  width: 50%;
-  height: 85px;
+  margin-top: 50px;
+  width: 55%;
+  height: 95px;
   background: blue;
-  border-radius: 100px / 50px;
+  color: rgb(253, 255, 247);
+  border-radius: 100px/50px;
+`;
+
+const WelcomeContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  width: 90%;
+`;
+
+const WelcomeText = styled(Container)`
+  display: flex;
+  width: 50%;
+  font-size: 30px;
+  color: blue;
+`;
+
+const WelcomeImage = styled.img`
+  display: flex;
+  width: 100%;
+  heigth: auto;
+  margin-top: 70px;
+
 `;
 
 export default Welcome;
