@@ -12,7 +12,7 @@ function Access(props) {
       </Group>
       <Group2>
         <AccessCode name="access-code" type="text" placeholder="123000"></AccessCode>
-        <TextQR>Or scan your QR code here:</TextQR>
+        <TextQR>Or scan your QR code to select your tour guide</TextQR>
       </Group2>
     </Container>
   );
