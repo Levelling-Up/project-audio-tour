@@ -20,19 +20,17 @@ function Navbar() {
       </HomeIcon>
       <LanguageButton className="language-button" {...buttonProps}>
         Language
-        <LanguageItems>
-          <div className={isOpen ? "visible" : ""} role="menu">
-            <OneLanguage>
+        <LanguageItems className={isOpen ? "visible" : ""} role="menu">
+            <British>
               <a {...itemProps[0]} href="https://example.com">
-                <img className="british-flag" src={britishFlag} alt="British flag" />
+                <img className="british-flag" src={britishFlag} height="25" alt="British flag" />
               </a>
-            </OneLanguage>
-            <OneLanguage>
+            </British>
+            <French>
             <a {...itemProps[1]} onClick={handleClick}>
-              <img className="french-flag" src={frenchFlag} alt="French flag" />
+              <img className="french-flag" src={frenchFlag} height="25" alt="French flag" />
             </a>
-            </OneLanguage>
-          </div>
+            </French>
         </LanguageItems>
       </LanguageButton>
     </NavbarContainer>
@@ -57,20 +55,27 @@ const HomeIcon = styled.a`
 const LanguageButton = styled.a`
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  margin-top: 10px;
+  margin-right: 5px;
+  color: white;
 `;
 
-const LanguageItems = styled.a`
-  display: flex;
-  flex-direction: column;
-`;
-
-const OneLanguage = styled.a`
+const LanguageItems = styled.div`
   display: flex;
   flex-direction: row;
-  width: 35px;
+`;
+
+const British = styled.a`
+  display: flex;
+  height: 10px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-right: 6px;
+`;
+
+const French = styled.a`
+  display: flex;
+  height: 10px;
+  margin-top: 5px;
 `;
 
 export default Navbar;
