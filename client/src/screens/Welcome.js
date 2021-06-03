@@ -2,9 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import welcomeImage from "./../assets/images/welcomeImage.jpg";
 
+import Navbar from "./../components/Navbar"
+
+
 function Welcome(props) {
   return (
     <Container>
+
+    <Navbar />
+
       <Logo>
         <h3>Audio Tour Logo</h3>
       </Logo>
