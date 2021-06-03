@@ -19,21 +19,3 @@ div[role="menu"].visible {
   visibility: visible;
 }
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  background-color: #282c34;
-  padding-top: 20px;
-}
-
-.home-button {
-  display: flex;
-  width: 25px;
-  margin-left: 5px;
-}
-
-.language-items {
-  display: flex;
-  flex-direction: column;
-}
-
