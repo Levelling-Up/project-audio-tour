@@ -11,6 +11,7 @@ code {
 }
 
 
+
 div[role="menu"] {
   visibility: hidden;
 }
@@ -36,4 +37,16 @@ div[role="menu"].visible {
   display: flex;
   flex-direction: column;
 }
+
+/* .british-flag {
+  width: 35px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.french-flag {
+  width: 35px;
+  margin-top: 5px;
+  margin-left: 5px;
+} */
 
