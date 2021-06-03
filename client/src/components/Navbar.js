@@ -14,53 +14,60 @@ function Navbar() {
   };
 
   return (
-    <Container>
-      <NavbarContainer>
-        <HomeIcon>
-          <img className="home-button" src={homelinkWhite} />
-        </HomeIcon>
-        <LanguageButton className="language-button" {...buttonProps}>
-          Language
-        </LanguageButton>
-        <div className={isOpen ? "visible" : ""} role="menu">
-          <a {...itemProps[0]} href="https://example.com">
-            <img className="british-flag" src="britishFlag.png" alt="British flag" />
-          </a>
-          <a {...itemProps[1]} onClick={handleClick}>
-            <img className="french-flag" src="frenchFlag.png" alt="French flag" />
-          </a>
-        </div>
-      </NavbarContainer>
-    </Container>
+    <NavbarContainer>
+      <HomeIcon>
+        <img className="home-button" src={homelinkWhite} alt="Home" />
+      </HomeIcon>
+      <LanguageButton className="language-button" {...buttonProps}>
+        Language
+        <LanguageItems>
+          <div className={isOpen ? "visible" : ""} role="menu">
+            <OneLanguage>
+              <a {...itemProps[0]} href="https://example.com">
+                <img className="british-flag" src={britishFlag} alt="British flag" />
+              </a>
+            </OneLanguage>
+            <OneLanguage>
+            <a {...itemProps[1]} onClick={handleClick}>
+              <img className="french-flag" src={frenchFlag} alt="French flag" />
+            </a>
+            </OneLanguage>
+          </div>
+        </LanguageItems>
+      </LanguageButton>
+    </NavbarContainer>
   );
 }
 
-const Container = styled.div`
-  background-color: white;
+const NavbarContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const NavbarContainer = styled(Container)`
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
   background-color: #282c34;
-  padding-top: 20px;
 `;
 
 const HomeIcon = styled.a`
   display: flex;
-  width: 25px;
-  margin-left: 5px;
+  width: 30px;
+  margin: 5px;
 `;
 
 const LanguageButton = styled.a`
   display: flex;
   flex-direction: column;
+  border: 1px solid red;
 `;
 
-const LanguageFlag = styled.a`
+const LanguageItems = styled.a`
+  display: flex;
+  flex-direction: column;
+`;
+
+const OneLanguage = styled.a`
+  display: flex;
+  flex-direction: row;
   width: 35px;
   margin-top: 5px;
   margin-right: 5px;
