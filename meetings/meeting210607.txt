@@ -1,10 +1,12 @@
 Audio Tours Team Meeting
 
 Date: Sunday 7th June
-Time: 7.00pm - 8.00pm (BST) 8.00pm - 9.00pm (CET)
+Time: 6.30pm - 7.00pm (BST) 8.00pm - 9.00pm (CET)
 Attendees: Henriette, Erica, Frida, Iwona & Sénamé 
 Meeting Chair: Iwona
 
 Agenda
 
-Attendees will present progress on the App feature they have chosen to work on and share any new ideas on how they envisage the implementation of the App. 
+Attendees will:
+(1) present and reflect on the progress on the App feature they have chosen to work on; 
+(2) share comments (if any) on how they envisage the implementation of the App. 
