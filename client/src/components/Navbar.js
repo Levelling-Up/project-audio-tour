@@ -1,81 +1,136 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import useDropdownMenu from "react-accessible-dropdown-menu-hook";
 import homelinkWhite from "./../assets/images/homelinkWhite.png";
 import britishFlag from "./../assets/images/britishFlag.png";
 import frenchFlag from "./../assets/images/frenchFlag.png";
 
-function Navbar() {
-  const { buttonProps, itemProps, isOpen, setIsOpen } = useDropdownMenu(2);
+function Navbar(props) {
+  const [displayDropdown, setDisplayDropdown] = useState(false);
+  const [language, setLanguage] = useState(props.language);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log("This was clicked");
+  const toggleDropdown = () => {
+    if (displayDropdown === false) {
+      setDisplayDropdown(true);
+    } else {
+      setDisplayDropdown(false);
+    }
+  };
+
+  const selectLanguage = (language) => {
+    props.setLanguage(language);
   };
 
   return (
-    <NavbarContainer>
+    <StyledUl>
       <HomeIcon>
-        <img className="home-button" src={homelinkWhite} alt="Home" />
+        <img src={homelinkWhite} />
       </HomeIcon>
-      <LanguageButton className="language-button" {...buttonProps}>
-        Language
-        <LanguageItems className={isOpen ? "visible" : ""} role="menu">
-            <British>
-              <a {...itemProps[0]} href="https://example.com">
-                <img className="british-flag" src={britishFlag} height="25" alt="British flag" />
-              </a>
-            </British>
-            <French>
-            <a {...itemProps[1]} onClick={handleClick}>
-              <img className="french-flag" src={frenchFlag} height="25" alt="French flag" />
-            </a>
-            </French>
-        </LanguageItems>
-      </LanguageButton>
-    </NavbarContainer>
+
+      <DropDownList onClick={() => toggleDropdown()}>
+        <Dropbtn>Languages</Dropbtn>
+
+        <DropDownContent>
+          {displayDropdown && (
+            <>
+              <English
+                onClick={() => selectLanguage("English")}
+                className={`${language === "English" ? "selected" : ""}`}
+              >
+                <img src={britishFlag} alt="British flag" />
+              </English>
+              <French
+                onClick={() => selectLanguage("French")}
+                className={`${language === "French" ? "selected" : ""}`}
+              >
+                <img src={frenchFlag} alt="French flag" />
+              </French>
+            </>
+          )}
+        </DropDownContent>
+      </DropDownList>
+    </StyledUl>
   );
 }
 
-const NavbarContainer = styled.div`
+const StyledUl = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
-  background-color: #282c34;
+  background-color: #333;
 `;
 
 const HomeIcon = styled.a`
   display: flex;
-  width: 30px;
-  margin: 5px;
+  img {
+    height: 30px;
+    margin: 5px;
+  }
 `;
 
-const LanguageButton = styled.a`
+const StyledLi = styled.li`
   display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-right: 5px;
+  justify-content: center;
+`;
+
+const Dropbtn = styled.div`
+  display: flex;
   color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 `;
 
-const LanguageItems = styled.div`
+const DropDownContent = styled.div`
   display: flex;
-  flex-direction: row;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 90px;
+  border: 1px solid red;
+
 `;
 
-const British = styled.a`
-  display: flex;
-  height: 10px;
-  margin-top: 5px;
-  margin-right: 6px;
+const DropDownList = styled(StyledLi)`
+  display: inline-block;
+  &:hover {
+    background-color: grey;
+  }
+  &:hover ${DropDownContent} {
+    display: block;
+  }
+`;
+
+// const StyledA = styled.a`
+//   display: inline-block;
+//   color: white;
+//   text-align: center;
+//   padding: 14px 16px;
+//   text-decoration: none;
+//   &:hover {
+//     background-color: red;
+//   }
+// `;
+
+const English = styled.a`
+  img {
+    height: 30px;
+    margin-top: 5px;
+    /* margin-right: 5px; */
+  }
+  /* &:hover {
+    border: 3px solid red;
+  } */
+  &.selected {
+    border: 4px solid blue;
+  }
 `;
 
 const French = styled.a`
-  display: flex;
-  height: 10px;
-  margin-top: 5px;
+  img {
+    height: 30px;
+  }
+  &.selected {
+    border: 4px solid blue;
+  }
 `;
 
 export default Navbar;

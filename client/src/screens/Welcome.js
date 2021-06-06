@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import welcomeImage from "./../assets/images/welcomeImage.jpg";
 import Navbar from "./../components/Navbar"
 
-function Welcome(props) {
+function Welcome() {
+
+  let [language, setLanguage] = useState("English")
+
   return (
     <Container>
-    <Navbar />
+    <Navbar setLanguage={setLanguage} language={language} />
       <Logo>
         <h3>Audio Tour Logo</h3>
       </Logo>
@@ -57,7 +60,7 @@ const WelcomeText = styled(Container)`
 const WelcomeImage = styled.img`
   display: flex;
   width: 100%;
-  heigth: auto;
+  height: auto;
   margin-top: 70px;
 
 `;
