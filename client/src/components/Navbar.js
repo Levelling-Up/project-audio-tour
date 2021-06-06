@@ -84,9 +84,7 @@ const DropDownContent = styled.div`
   display: flex;
   position: absolute;
   background-color: #f9f9f9;
-  width: 90px;
-  border: 1px solid red;
-
+  width: 100px;
 `;
 
 const DropDownList = styled(StyledLi)`
@@ -95,7 +93,7 @@ const DropDownList = styled(StyledLi)`
     background-color: grey;
   }
   &:hover ${DropDownContent} {
-    display: block;
+    display: flex;
   }
 `;
 
@@ -114,7 +112,11 @@ const English = styled.a`
   img {
     height: 30px;
     margin-top: 5px;
-    /* margin-right: 5px; */
+    margin-right: 5px;
+
+    /* ${Dropbtn}:hover & {
+    fill: rebeccapurple; */
+  }
   }
   /* &:hover {
     border: 3px solid red;
@@ -127,7 +129,11 @@ const English = styled.a`
 const French = styled.a`
   img {
     height: 30px;
+    margin-left: 5px;
   }
+  &:hover {
+  opacity: 0.8;
+}
   &.selected {
     border: 4px solid blue;
   }
