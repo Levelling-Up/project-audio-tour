@@ -5,8 +5,6 @@ import Navbar from "./../components/Navbar"
 
 function Welcome() {
 
-  // let [language, setLanguage] = useState("English")
-// setLanguage={setLanguage} language={language}
   return (
     <Container>
     <Navbar />
