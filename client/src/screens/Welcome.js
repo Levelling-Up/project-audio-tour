@@ -35,7 +35,8 @@ const Logo = styled.div`
   width: 55%;
   height: 95px;
   background: blue;
-  color: rgb(253, 255, 247);
+  font-size: 26px;
+  color: whitesmoke;
   border-radius: 100px/80px;
 `;
 
