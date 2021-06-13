@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import welcomeImage from "./../assets/images/welcomeImage.jpg";
 import Navbar from "./../components/Navbar"
@@ -20,14 +20,13 @@ function Welcome() {
 }
 
 const Container = styled.div`
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 `;
 
-const Logo = styled(Container)`
+const Logo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,20 +36,20 @@ const Logo = styled(Container)`
   height: 95px;
   background: blue;
   color: rgb(253, 255, 247);
-  border-radius: 100px/50px;
+  border-radius: 100px/80px;
 `;
 
-const WelcomeContainer = styled(Container)`
+const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
-  width: 90%;
+  width: 80%;
 `;
 
-const WelcomeText = styled(Container)`
+const WelcomeText = styled.div`
   display: flex;
-  width: 50%;
+  width: 40%;
   font-size: 30px;
   color: blue;
 `;
