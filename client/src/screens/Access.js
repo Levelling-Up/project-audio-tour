@@ -1,20 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "./../components/Navbar"
-
+import Navbar from "./../components/Navbar";
 
 function Access(props) {
   return (
     <Container>
-    <Navbar />
-      <AccessCodeLabel htmlFor="access-code">Enter your access code here:</AccessCodeLabel>
-      <AccessCode
-        name="access-code"
-        type="text"
-        placeholder="Access code"
-        autoComplete="off"
-      ></AccessCode>
-      <Text>Or scan your QR code here:</Text>
+      <Navbar />
+
+      <Logo>
+        <h3>Audio Tour Logo</h3>
+      </Logo>
+
+      <Group>
+        <AccessCodeLabel htmlFor="access-code">
+          Enter your access code here:
+        </AccessCodeLabel>
+        <AccessCode
+          name="access-code"
+          type="text"
+          placeholder="Access code"
+          autoComplete="off"
+        ></AccessCode>
+        <Text>Or scan your QR code here:</Text>
+      </Group>
     </Container>
   );
 }
@@ -23,27 +31,40 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  width: 55%;
+  height: 95px;
+  background: blue;
+  font-size: 26px;
+  color: whitesmoke;
+  border-radius: 100px/80px;
 `;
 
 const Group = styled.div`
   display: flex;
   flex-direction: column;
-  height: 65px;
+  align-items: center;
   width: 333px;
-  border: 1px solid orange;
 `;
 
-const Text = styled.span`
+const AccessCodeLabel = styled.label`
   display: flex;
   font-family: Arial;
+  height: 70px;
+  width: 265px;
   color: blue;
-  text-align: left;
-  width: 260px;
-  font-size: 20px;
-  margin: 16px;
-  padding: 8px;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  /* border: 1px solid red; */
 `;
 
 const AccessCode = styled.input`
@@ -52,23 +73,22 @@ const AccessCode = styled.input`
   height: 40px;
   width: 250px;
   color: blue;
-  text-align: left;
-  font-size: 16px;
-  padding: 14px;
-  /* border: 1px solid blue; */
+  /* text-align: left; */
+  font-size: 20px;
+  margin-top: 40px;
+  padding: 12px;
+  border: 1px solid blue;
 `;
 
-const AccessCodeLabel = styled.label`
+const Text = styled.span`
   display: flex;
   font-family: Arial;
-  height: 20px;
-  width: 250px;
   color: blue;
-  text-align: left;
-  font-size: 20px;
-  margin-top: 42px;
-  margin-bottom: 10px;
-  /* border: 1px solid red; */
+  text-align: center;
+  width: 260px;
+  font-size: 30px;
+  margin-top: 40px;
+  /* border: 1px solid orange; */
 `;
 
 export default Access;

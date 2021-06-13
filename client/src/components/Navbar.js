@@ -31,8 +31,8 @@ function Navbar(props) {
         <img src={homelinkWhite} />
       </HomeIcon>
 
-      <DropDownList onClick={() => toggleDropdown()}>
-        <Dropbtn>Languages</Dropbtn>
+      <DropDownList>
+        <Dropbtn onClick={() => toggleDropdown()}>Languages</Dropbtn>
         <DropDownContent>
           {displayDropdown && (
             <>
