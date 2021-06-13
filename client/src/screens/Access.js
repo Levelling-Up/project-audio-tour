@@ -39,13 +39,11 @@ const Text = styled.span`
   display: flex;
   font-family: Arial;
   color: blue;
-  /* color: rgba(254,248,238,1); */
   text-align: left;
   width: 260px;
   font-size: 20px;
   margin: 16px;
   padding: 8px;
-  /* border: 1px solid green; */
 `;
 
 const AccessCode = styled.input`
@@ -66,7 +64,6 @@ const AccessCodeLabel = styled.label`
   height: 20px;
   width: 250px;
   color: blue;
-  /* color: rgba(254,248,238,1); */
   text-align: left;
   font-size: 20px;
   margin-top: 42px;
