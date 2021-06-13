@@ -6,7 +6,7 @@ import frenchFlag from "./../assets/images/frenchFlag.png";
 
 function Navbar(props) {
   const [displayDropdown, setDisplayDropdown] = useState(false);
-  const [language, setLanguage] = useState(props.language);
+  const [language, setLanguage] = useState("English");  
 
   const toggleDropdown = () => {
     if (displayDropdown === false) {
@@ -16,8 +16,13 @@ function Navbar(props) {
     }
   };
 
-  const selectLanguage = (language) => {
-    props.setLanguage(language);
+  const selectLanguage = () => {
+    if (language === "English") {
+    setLanguage("French");
+    } else {
+      setLanguage("English")
+    }
+    console.log(language)
   };
 
   return (
@@ -28,7 +33,6 @@ function Navbar(props) {
 
       <DropDownList onClick={() => toggleDropdown()}>
         <Dropbtn>Languages</Dropbtn>
-
         <DropDownContent>
           {displayDropdown && (
             <>
@@ -97,32 +101,17 @@ const DropDownList = styled(StyledLi)`
   }
 `;
 
-// const StyledA = styled.a`
-//   display: inline-block;
-//   color: white;
-//   text-align: center;
-//   padding: 14px 16px;
-//   text-decoration: none;
-//   &:hover {
-//     background-color: red;
-//   }
-// `;
-
 const English = styled.a`
   img {
     height: 30px;
     margin-top: 5px;
     margin-right: 5px;
-
-    /* ${Dropbtn}:hover & {
-    fill: rebeccapurple; */
   }
+  &:hover {
+    opacity: 0.8;
   }
-  /* &:hover {
-    border: 3px solid red;
-  } */
   &.selected {
-    border: 4px solid blue;
+    border: 2px solid blue;
   }
 `;
 
@@ -132,10 +121,10 @@ const French = styled.a`
     margin-left: 5px;
   }
   &:hover {
-  opacity: 0.8;
-}
+    opacity: 0.8;
+  }
   &.selected {
-    border: 4px solid blue;
+    border: 2px solid blue;
   }
 `;
 

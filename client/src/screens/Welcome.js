@@ -5,11 +5,11 @@ import Navbar from "./../components/Navbar"
 
 function Welcome() {
 
-  let [language, setLanguage] = useState("English")
-
+  // let [language, setLanguage] = useState("English")
+// setLanguage={setLanguage} language={language}
   return (
     <Container>
-    <Navbar setLanguage={setLanguage} language={language} />
+    <Navbar />
       <Logo>
         <h3>Audio Tour Logo</h3>
       </Logo>
