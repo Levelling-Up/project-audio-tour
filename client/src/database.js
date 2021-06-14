@@ -1,6 +1,6 @@
 export const tracksDB = [
     {id:"1",
-        image_url: "https://unsplash.com/photos/tbEAfHcV8n4",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg",
         audio_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Victoria-English-Track-1_6738168_1621775430.mp3",
         poi_id: "1",
         language: "english"
@@ -76,5 +76,168 @@ export const tracksDB = [
         audio_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Victoria-English-Track-13_6739940_1621782318.mp3",
         poi_id: "13",
         language: "english"
+    }
+]
+
+export const toursDB = [
+
+    {
+        id: 1,
+        name: "Victoria",
+        image_url: "",
+        user_id: "1"
+    },
+    {
+        id: 2,
+        name: "Tour 2",
+        image_url: "",
+        user_id: "1"
+    },
+    {
+        id: 3,
+        name: "Tour 3",
+        image_url: "",
+        user_id: "1"
+    },
+    {
+        id: 4,
+        name: "Tour 4",
+        image_url: "",
+        user_id: "1"
+    },
+    {
+        id: 5,
+        name: "Tour 5",
+        image_url: "",
+        user_id: "1"
+    },
+    {
+        id: 6,
+        name: "Tour 6",
+        image_url: "",
+        user_id: "1"
+    }
+]
+
+export const poisDB = [
+    {
+        id: 1,
+        name: "Welcome",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 2,
+        name: "Canal",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 3,
+        name: "Leaving the Basin",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 4,
+        name: "Rosemount Park",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 5,
+        name: "Friars Brae Bridge",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 6,
+        name: "Winding Hole",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 7,
+        name: "St. Michael's Church",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 8,
+        name: "Houses on the Left",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 9,
+        name: "Pass through the Basin",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 10,
+        name: "Learmonth Gardens Doocot",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 11,
+        name: "Manse Road Bridge",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 12,
+        name: "Bridge Supports 2",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 13,
+        name: "St Magdalene",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 14,
+        name: "East Winding Hole",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
+    },
+    {
+        id: 15,
+        name: "Approaching the Basin",
+        image_url: "",
+        tour_id: "1",
+        latitude: "",
+        longitude: ""
     }
 ]
