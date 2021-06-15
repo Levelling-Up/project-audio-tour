@@ -123,7 +123,7 @@ export const poisDB = [
     {
         id: 1,
         name: "Welcome",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_1_welcome.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -131,7 +131,7 @@ export const poisDB = [
     {
         id: 2,
         name: "Canal",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_2_canal.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -139,7 +139,7 @@ export const poisDB = [
     {
         id: 3,
         name: "Leaving the Basin",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_3_leaving_the_basin.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -147,7 +147,7 @@ export const poisDB = [
     {
         id: 4,
         name: "Rosemount Park",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_4_rosemount_park.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -155,7 +155,7 @@ export const poisDB = [
     {
         id: 5,
         name: "Friars Brae Bridge",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_5_friars_brae_bridge.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -163,7 +163,7 @@ export const poisDB = [
     {
         id: 6,
         name: "Winding Hole",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_6_winding_hole.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -171,7 +171,7 @@ export const poisDB = [
     {
         id: 7,
         name: "St. Michael's Church",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_7_st_michael_church.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -179,7 +179,7 @@ export const poisDB = [
     {
         id: 8,
         name: "Houses on the Left",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_8_houses_on_left.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -187,7 +187,7 @@ export const poisDB = [
     {
         id: 9,
         name: "Pass through the Basin",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_9_pass_through_the_basin.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -195,7 +195,7 @@ export const poisDB = [
     {
         id: 10,
         name: "Learmonth Gardens Doocot",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_10_learmonth_gardens_doocot.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -203,7 +203,7 @@ export const poisDB = [
     {
         id: 11,
         name: "Manse Road Bridge",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_11_manse_road_bridge.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -211,7 +211,7 @@ export const poisDB = [
     {
         id: 12,
         name: "Bridge Supports 2",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_12_st_magdalene.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -219,7 +219,7 @@ export const poisDB = [
     {
         id: 13,
         name: "St Magdalene",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_13_east_winding_hole.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -227,7 +227,7 @@ export const poisDB = [
     {
         id: 14,
         name: "East Winding Hole",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_1_welcome.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""
@@ -235,7 +235,7 @@ export const poisDB = [
     {
         id: 15,
         name: "Approaching the Basin",
-        image_url: "",
+        image_url: "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_1_welcome.jpg",
         tour_id: "1",
         latitude: "",
         longitude: ""

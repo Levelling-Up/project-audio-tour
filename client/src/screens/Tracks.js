@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { poisDB, toursDB } from "../database.js";
+import Navbar from "./../components/Navbar";
 
 function Tracks(props) {
   const tour = toursDB[0].name;
@@ -9,17 +10,16 @@ function Tracks(props) {
 
   return (
     <Container>
-        <Title>{tour}</Title>
-      <Style>
-        <Row>
+      <Navbar />
+      <Title>{tour}</Title>
+      <Row>
         {pois.map((poi, i) => (
           <TrackContainer>
             <POIImage src={poi.image_url}></POIImage>
             <TrackName>{poi.name}</TrackName>
           </TrackContainer>
         ))}
-        </Row>
-      </Style>
+      </Row>
     </Container>
   );
 }
@@ -31,15 +31,6 @@ const Container = styled.div`
   height: 100vh;
   width: 100vw;
   align-items: center;
-`;
-
-const Style = styled.div`
-  height: 136px;
-  width: 356px;
-  flex-direction: row;
-  display: flex;
-  margin-top: 20px;
-  margin-left: 29px;
 `;
 
 const TrackContainer = styled.div`
@@ -68,7 +59,7 @@ const TrackName = styled.span`
 const Row = styled.div`
   display: grid;
   grid-template-columns: auto auto;
-  
+  overflow: auto;
 `;
 
 const Title = styled.div`
@@ -76,9 +67,9 @@ const Title = styled.div`
   background-color: transparent;
   text-align: center;
   color: rgba(255,255,255,1);
-  font-size: 17px;
-  margin-left: 136px;
-  margin-top: 1px;
+  font-size: 24px;
+  margin-top: 8px;
+  margin-bottom: 12px;
 `;
 
 export default Tracks;
