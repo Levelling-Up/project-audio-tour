@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.2.1",
+    "aws-amplify": "^4.1.0",
     "google-map-react": "^1.1.4",
     "material-ui-slider": "^3.0.8",
     "pure-react-carousel": "^1.21.1",
