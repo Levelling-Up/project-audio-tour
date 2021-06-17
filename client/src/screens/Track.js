@@ -1,23 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import IcosArrowDown from "../components/IcosArrowDown";
+import ElementsPlayerTimeline from "../components/ElementsPlayerTimeline";
+import { poisDB, tracksDB, toursDB } from "../database.js";
+import Navbar from "./../components/Navbar";
 
-function Song(props) {
+const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
+
+function Track(props) {
+
+  const name = poisDB[0].name;
+  const description = tracksDB[0].name;
+  const language = toursDB[0].name;
+  const audio_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Victoria-English-Track-1_6738168_1621775430.mp3";
+  
+
   return (
     <Container>
-      <BigBanner>
+      <Navbar />
+      <MediaPlayer>
         <Mask>
           <Mask1>
-            <IcosArrowDown
-              style={{
-                height: 24,
-                width: 24,
-                transform: "rotate(undefined)",
-                backgroundColor: "transparent",
-                marginTop: 32,
-                marginLeft: 20
-              }}
-            ></IcosArrowDown>
             <PlayerControlsPlay>
               <Path1Stack>
                 <svg
@@ -39,13 +41,13 @@ function Song(props) {
                   ></path>
                 </svg>
                 <svg
-                  viewBox="0 0 16.9 20.59"
+                  viewBox="0 0 24 28"
                   style={{
                     position: "absolute",
                     height: 21,
                     width: 17,
-                    top: 20,
-                    left: 24,
+                    top: 21,
+                    left: 26,
                     backgroundColor: "transparent",
                     borderColor: "transparent"
                   }}
@@ -60,58 +62,20 @@ function Song(props) {
             </PlayerControlsPlay>
           </Mask1>
         </Mask>
-      </BigBanner>
-      <DiscoverRow>
-        <Discover>Discover</Discover>
-        <Style>
-          <Rectangle5>
-            <svg
-              viewBox="-0.75 -0.75 9 15"
-              style={{
-                height: 15,
-                width: 9,
-                backgroundColor: "transparent",
-                borderColor: "transparent",
-                transform: "rotate(undefined)",
-                marginTop: 3,
-                marginLeft: 11
-              }}
-            >
-              <path
-                strokeWidth={3}
-                fill="transparent"
-                stroke="rgba(255,255,255,1)"
-                fillOpacity={0.7}
-                strokeOpacity={0.7}
-                d="M7.50 13.50 L1.50 7.50 L7.50 1.50 "
-              ></path>
-            </svg>
-          </Rectangle5>
-        </Style>
-      </DiscoverRow>
-      <NothingSeekRow>
-        <NothingSeek>Nothing seek</NothingSeek>
-        <TimeFlies>Time flies</TimeFlies>
-      </NothingSeekRow>
-      <Rectangle3Row>
-        <Rectangle3></Rectangle3>
-        <Rectangle3Copy3Column>
-          <Rectangle3Copy3></Rectangle3Copy3>
-          <Rectangle3Copy4></Rectangle3Copy4>
-        </Rectangle3Copy3Column>
-        <Rectangle3Copy></Rectangle3Copy>
-      </Rectangle3Row>
-      <Group2>
-        <LongKissGoodnight>Long Kiss Goodnight</LongKissGoodnight>
-        <SeeRgb>SeeRgb</SeeRgb>
-      </Group2>
-      <BetweenHeavenAndEStack>
-        <BetweenHeavenAndE>
-          Between Heaven and Earth, every single step of ours is at full
-          throttle, while every single road is twisting and turning. There is no
-          constant view…
-        </BetweenHeavenAndE>
-        <Group4>
+      </MediaPlayer>
+      <audio controls preload="auto">
+        <source src={audio_url} type="audio/mp3"/>
+      </audio>
+    
+    
+      <DetailsContainer>
+        <TitleContainer>
+          <NamePOI>{name}</NamePOI>
+        </TitleContainer>
+        <Description>
+          {description}
+        </Description>
+        <ExpanderContainer>
           <ViewFullTextRow>
             <ViewFullText>View full text</ViewFullText>
             <ChevronDown>
@@ -135,8 +99,8 @@ function Song(props) {
               </svg>
             </ChevronDown>
           </ViewFullTextRow>
-        </Group4>
-      </BetweenHeavenAndEStack>
+        </ExpanderContainer>
+      </DetailsContainer>
     </Container>
   );
 }
@@ -147,18 +111,22 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  align-items: center;
+  
 `;
 
-const BigBanner = styled.div`
+const MediaPlayer = styled.div`
   height: 243px;
-  width: 414px;
+  width: 400px;
   flex-direction: column;
   display: flex;
+  margin-top: 10%;
+  margin-bottom: 32px;
 `;
 
 const Mask = styled.div`
   height: 243px;
-  width: 414px;
+  width: 400px;
   overflow: hidden;
   background-color: transparent;
   flex-direction: column;
@@ -167,20 +135,26 @@ const Mask = styled.div`
 
 const Mask1 = styled.div`
   height: 243px;
-  width: 414px;
+  width: 400px;
   overflow: hidden;
+  background-image: url(${image_url});
+  background-size: cover;
+  background-position: center;
   background-color: rgba(0,0,0,0.3);
   flex-direction: column;
   display: flex;
+  position: relative;
 `;
 
 const PlayerControlsPlay = styled.div`
+  position: absolute;
   height: 60px;
   width: 60px;
   flex-direction: column;
   display: flex;
-  margin-top: 107px;
-  margin-left: 334px;
+  bottom: 8px;
+  left: 16px;
+  display: none;
 `;
 
 const Path1Stack = styled.div`
@@ -189,145 +163,29 @@ const Path1Stack = styled.div`
   position: relative;
 `;
 
-const Discover = styled.span`
-  font-family: Arial;
-  opacity: 0.7;
-  background-color: transparent;
-  text-align: center;
-  color: rgba(255,255,255,1);
-  font-size: 14px;
-`;
-
-const Style = styled.div`
-  height: 20px;
-  width: 30px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 301px;
-`;
-
-const Rectangle5 = styled.div`
-  height: 20px;
-  width: 30px;
-  border-radius: 2px;
-  background-color: rgba(255,255,255,0.48378906082834344);
-  flex-direction: column;
-  display: flex;
-`;
-
-const DiscoverRow = styled.div`
-  height: 20px;
-  flex-direction: row;
-  display: flex;
-  margin-top: 246px;
-  margin-left: 20px;
-  margin-right: 10px;
-`;
-
-const NothingSeek = styled.span`
-  font-family: Arial;
-  background-color: transparent;
-  color: rgba(255,255,255,1);
-  font-size: 14px;
-`;
-
-const TimeFlies = styled.span`
-  font-family: Arial;
-  background-color: transparent;
-  color: rgba(255,255,255,1);
-  font-size: 14px;
-  margin-left: 250px;
-`;
-
-const NothingSeekRow = styled.div`
-  height: 18px;
-  flex-direction: row;
-  display: flex;
-  margin-top: 160px;
-  margin-left: 20px;
-  margin-right: 4px;
-`;
-
-const Rectangle3 = styled.div`
-  height: 140px;
-  width: 240px;
-  border-radius: 4px;
-  background-color: rgba(0,0,0,0.3);
-`;
-
-const Rectangle3Copy3 = styled.div`
-  height: 68px;
-  width: 68px;
-  border-radius: 4px;
-  background-color: rgba(0,0,0,0.3);
-`;
-
-const Rectangle3Copy4 = styled.div`
-  height: 68px;
-  width: 68px;
-  border-radius: 4px;
-  background-color: rgba(0,0,0,0.3);
-  margin-top: 4px;
-`;
-
-const Rectangle3Copy3Column = styled.div`
-  width: 68px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 4px;
-`;
-
-const Rectangle3Copy = styled.div`
-  height: 140px;
-  width: 240px;
-  border-radius: 4px;
-  background-color: rgba(0,0,0,0.3);
-  margin-left: 20px;
-`;
-
-const Rectangle3Row = styled.div`
-  height: 140px;
-  flex-direction: row;
-  display: flex;
-  margin-top: -168px;
-  margin-left: 20px;
-  margin-right: -178px;
-`;
-
-const Group2 = styled.div`
+const TitleContainer = styled.div`
   height: 42px;
-  width: 181px;
+  width: 400px;
   flex-direction: column;
   display: flex;
-  margin-top: -402px;
-  margin-left: 20px;
+  align-items: left;
 `;
 
-const LongKissGoodnight = styled.span`
+const NamePOI = styled.div`
   font-family: Arial;
   background-color: transparent;
   text-align: center;
   color: rgba(255,255,255,1);
   font-size: 18px;
   margin-left: 1px;
+  text-align: left;
 `;
 
-const SeeRgb = styled.span`
+const Description = styled.div`
   font-family: Arial;
-  background-color: transparent;
-  color: rgba(255,255,255,1);
-  font-size: 12px;
-  margin-top: 1px;
-  margin-left: 2px;
-`;
-
-const BetweenHeavenAndE = styled.span`
-  font-family: Arial;
-  position: absolute;
   top: 0px;
   left: 0px;
   height: 99px;
-  width: 374px;
   opacity: 0.7;
   background-color: transparent;
   text-align: justify;
@@ -335,15 +193,16 @@ const BetweenHeavenAndE = styled.span`
   font-size: 14px;
 `;
 
-const Group4 = styled.div`
-  position: absolute;
+//TODO make clickable to expand description text
+const ExpanderContainer = styled.div`
   top: 79px;
   left: 133px;
   height: 20px;
-  width: 109px;
+  width: 400px;
   opacity: 0.3;
   flex-direction: row;
   display: flex;
+  justify-content: center;
 `;
 
 const ViewFullText = styled.span`
@@ -352,6 +211,7 @@ const ViewFullText = styled.span`
   text-align: center;
   color: rgba(255,255,255,1);
   font-size: 14px;
+  
 `;
 
 const ChevronDown = styled.div`
@@ -368,16 +228,14 @@ const ViewFullTextRow = styled.div`
   height: 18px;
   flex-direction: row;
   display: flex;
-  flex: 1 1 0%;
-  margin-right: 3px;
+  justify-content: center;
 `;
 
-const BetweenHeavenAndEStack = styled.div`
-  width: 374px;
+const DetailsContainer = styled.div`
+  width: 384px;
   height: 99px;
   margin-top: 20px;
-  margin-left: 20px;
   position: relative;
 `;
 
-export default Song;
+export default Track;
