@@ -7,12 +7,14 @@ type Track @model @key(name: "byTrack", fields: ["id"])
   pointOfInterestId: ID!
 }
 
-type PointOfInterest @model @key(name: "byPointOfInterest", fields: ["id"]) {
+type PointOfInterest @model @key(name: "byPointOfInterest", fields: ["id"])
+  @key(name: "byTour", fields: ["tourId"]) {
   id: ID!
   name: String!
   imageUrl: String!
   lat: String
   lon: String
+  tourId: ID!
   tracks: [Track] @connection(keyName: "byPOI", fields: ["id"])
 }
 
@@ -21,5 +23,5 @@ type Tour @model @key(name: "byTour", fields: ["id"]) {
   name: String!
   imageUrl: String!
   author: String
-  pointsOfInterest: [PointOfInterest]
+  pointsOfInterests: [PointOfInterest] @connection(keyName: "byTour", fields: ["id"])
 }

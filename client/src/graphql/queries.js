@@ -42,6 +42,7 @@ export const getPointOfInterest = /* GraphQL */ `
       imageUrl
       lat
       lon
+      tourId
       tracks {
         items {
           id
@@ -76,6 +77,7 @@ export const listPointOfInterests = /* GraphQL */ `
         imageUrl
         lat
         lon
+        tourId
         tracks {
           nextToken
         }
@@ -94,16 +96,17 @@ export const getTour = /* GraphQL */ `
       imageUrl
       author
       pointsOfInterest {
-        id
-        name
-        imageUrl
-        lat
-        lon
-        tracks {
-          nextToken
+        items {
+          id
+          name
+          imageUrl
+          lat
+          lon
+          tourId
+          createdAt
+          updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
       }
       createdAt
       updatedAt
@@ -123,13 +126,7 @@ export const listTours = /* GraphQL */ `
         imageUrl
         author
         pointsOfInterest {
-          id
-          name
-          imageUrl
-          lat
-          lon
-          createdAt
-          updatedAt
+          nextToken
         }
         createdAt
         updatedAt

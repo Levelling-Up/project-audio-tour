@@ -48,6 +48,7 @@ export const onCreatePointOfInterest = /* GraphQL */ `
       imageUrl
       lat
       lon
+      tourId
       tracks {
         items {
           id
@@ -73,6 +74,7 @@ export const onUpdatePointOfInterest = /* GraphQL */ `
       imageUrl
       lat
       lon
+      tourId
       tracks {
         items {
           id
@@ -98,6 +100,7 @@ export const onDeletePointOfInterest = /* GraphQL */ `
       imageUrl
       lat
       lon
+      tourId
       tracks {
         items {
           id
@@ -123,16 +126,17 @@ export const onCreateTour = /* GraphQL */ `
       imageUrl
       author
       pointsOfInterest {
-        id
-        name
-        imageUrl
-        lat
-        lon
-        tracks {
-          nextToken
+        items {
+          id
+          name
+          imageUrl
+          lat
+          lon
+          tourId
+          createdAt
+          updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
       }
       createdAt
       updatedAt
@@ -147,16 +151,17 @@ export const onUpdateTour = /* GraphQL */ `
       imageUrl
       author
       pointsOfInterest {
-        id
-        name
-        imageUrl
-        lat
-        lon
-        tracks {
-          nextToken
+        items {
+          id
+          name
+          imageUrl
+          lat
+          lon
+          tourId
+          createdAt
+          updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
       }
       createdAt
       updatedAt
@@ -171,16 +176,17 @@ export const onDeleteTour = /* GraphQL */ `
       imageUrl
       author
       pointsOfInterest {
-        id
-        name
-        imageUrl
-        lat
-        lon
-        tracks {
-          nextToken
+        items {
+          id
+          name
+          imageUrl
+          lat
+          lon
+          tourId
+          createdAt
+          updatedAt
         }
-        createdAt
-        updatedAt
+        nextToken
       }
       createdAt
       updatedAt
