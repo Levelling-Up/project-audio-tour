@@ -4,9 +4,9 @@ import homelinkWhite from "./../assets/images/homelinkWhite.png";
 import britishFlag from "./../assets/images/britishFlag.png";
 import frenchFlag from "./../assets/images/frenchFlag.png";
 
-function Navbar(props) {
+function Navbar({language, handleLanguage}) {
   const [displayDropdown, setDisplayDropdown] = useState(false);
-  const [language, setLanguage] = useState("English");  
+    
 
   const toggleDropdown = () => {
     if (displayDropdown === false) {
@@ -16,9 +16,9 @@ function Navbar(props) {
     }
   };
 
-  const selectLanguage = (lang) => {
-    setLanguage(lang);
-    console.log(language);
+  const selectLanguage = (languageLoc) => {
+    handleLanguage(languageLoc)
+    console.log(languageLoc);
   };
 
   return (
@@ -33,13 +33,17 @@ function Navbar(props) {
           {displayDropdown && (
             <>
               <English
-                onClick={() => setLanguage("English")}
+                onClick={() => { 
+                  selectLanguage("English"); 
+                  console.log(language)} }
                 className={`${language === "English" ? "selected" : ""}`}
               >
                 <img src={britishFlag} alt="British flag" />
               </English>
               <French
-                onClick={() => setLanguage("French")}
+                onClick={() => {
+                  selectLanguage("French");
+                  console.log(language)}}
                 className={`${language === "French" ? "selected" : ""}`}
               >
                 <img src={frenchFlag} alt="French flag" />
