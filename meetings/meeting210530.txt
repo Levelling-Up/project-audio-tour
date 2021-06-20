@@ -1,8 +1,8 @@
 Audio Tours Team Meeting
 
 Date: Sunday 30th May
-Time: 6.15pm - 8.15pm (BST) 7.15pm - 9.15pm (CET)
-Attendees: 
+Time: 6.15pm - 7.30pm (BST) 7.15pm - 8.30pm (CET)
+Attendees: Henriette, Erica, Frida, Iwona & Sénamé 
 Meeting Chair: Sénamé
 
 
@@ -14,25 +14,19 @@ Anyone who hasn't completed the above will be asked to leave the meeting.
 
 1) Tech stack update (frontend)
 2) How to work with Git/Github 
-3) Review TDD - Is it a possibility?
-4) Introduction from new participant
+
+
 
 Notes & Decisions
 -----------------
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-
+- We choose PWA and will focus only on the frontend, no backend for the moment 
+- Things that we want to implement => home screen button, navbar, language selection (either directly on the home page as a dropdown menu or available on each page in the navbar)
+- Erica will add audio tracks on AWS and we will use the URLs within the app
 
 Next Steps
-- 
-- 
-- 
--
--
--
+- Pull the latest code from the develop branch 
+- Review code by wednesday & choose a screen to work on; drop a message on slack to keep the group updated
+- Create your own branch (add initials and description)
+- Any questions on the code, please send a message in the group slack 
+- Git/Github issues => ask Henriette in the group slack
+- Iwona will chair the next meeting, updated time => 8pm BCN/7pm UK

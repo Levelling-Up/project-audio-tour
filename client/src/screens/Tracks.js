@@ -1,21 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { API, graphqlOperation } from 'aws-amplify';
 import styled from "styled-components";
 import { poisDB, toursDB } from "../database.js";
 import Navbar from "./../components/Navbar";
+import { listPointOfInterests } from '../graphql/queries';
 
 function Tracks(props) {
+  const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
+
   const tour = toursDB[0].name;
   const pois = poisDB;
   const language = "english";
+
+  useEffect(() => {
+
+    const fetchPointsOfInterest = async () => {
+      try {
+        const result = await API.graphql(graphqlOperation(listPointOfInterests));
+        if (result.data){
+          setPointsOfInterest(result.data.listPointOfInterests.items)
+        }else{
+          setPointsOfInterest([])
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchPointsOfInterest();
+  }, [])
+
 
   return (
     <Container>
       <Navbar />
       <Title>{tour}</Title>
       <Row>
-        {pois.map((poi, i) => (
-          <TrackContainer>
-            <POIImage src={poi.image_url}></POIImage>
+        {pointsOfInterest.map((poi, i) => (
+          <TrackContainer key={poi.id}>
+            <POIImage src={poi.imageUrl}></POIImage>
             <TrackName>{poi.name}</TrackName>
           </TrackContainer>
         ))}
