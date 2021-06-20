@@ -16,9 +16,9 @@ function Navbar({language, handleLanguage}) {
     }
   };
 
-  const selectLanguage = (lang) => {
-    setLanguage(lang);
-    console.log(language);
+  const selectLanguage = (languageLoc) => {
+    handleLanguage(languageLoc)
+    console.log(languageLoc);
   };
 
   return (
@@ -33,13 +33,17 @@ function Navbar({language, handleLanguage}) {
           {displayDropdown && (
             <>
               <English
-                onClick={() => handleLanguage("English")}
+                onClick={() => { 
+                  selectLanguage("English"); 
+                  console.log(language)} }
                 className={`${language === "English" ? "selected" : ""}`}
               >
                 <img src={britishFlag} alt="British flag" />
               </English>
               <French
-                onClick={() => handleLanguage("French")}
+                onClick={() => {
+                  selectLanguage("French");
+                  console.log(language)}}
                 className={`${language === "French" ? "selected" : ""}`}
               >
                 <img src={frenchFlag} alt="French flag" />

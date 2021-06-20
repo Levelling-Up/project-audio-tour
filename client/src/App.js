@@ -3,10 +3,11 @@
 
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import UseTours1 from "./Hooks/useTours1.jsx";
-import Tour from "./Components/Tour.jsx";
-import PoiPage from "./Components/PoiPage.jsx";
+import UseTours from "./Hooks/useTours1.jsx";
+import Tour from "./components/Tour1.jsx";
+import PoiPage from "./components/PoiPage1.jsx";
 import "./icons.js";
+import Navbar from './components/Navbar.jsx';
 // import Welcome from "./screens/Welcome";
 // import Tracks from "./screens/Tracks";
 // import Select from "./screens/Select";
@@ -18,9 +19,14 @@ import "./icons.js";
 
 
 function App() {
-  const { tours } = UseTours1();
+  const { tours } = UseTours();
   const addr = String(tours[0].image_url);
   console.log(addr);
+  const [language, setLanguage] = useState('English')
+  const handleLanguage = (arg) => {
+    console.log(arg)
+
+  }
 
   return (
     // <Router>
@@ -35,15 +41,16 @@ function App() {
     // </Router>
     <Router>
     <div className="App">
-      <nav></nav>
+      <Navbar language = {language} handleLanguage = {handleLanguage}/> 
 
       <Switch>
         <Route path="/" exact>
-          <h1>Hello CodeSandbox</h1>
+          <h1>Welcome</h1>
           {tours[0].image_url}
+          console.log(event.target)
         </Route>
         <Route path="/tours/poi/:id">
-          <PoiPage />
+          <PoiPage language = {language} />
         </Route>
 
         <Route path="/tours">
