@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 //import { tracksDB } from "../database.js";
 import usePoi from "../Hooks/usePoi.jsx";
 
-const PoiPage = () => {
+const PoiPage = ({language, handleLanguage}) => {
   const { id } = useParams();
   const { pois } = usePoi();
 
