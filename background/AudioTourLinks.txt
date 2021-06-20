@@ -33,3 +33,7 @@ https://www.twilio.com/blog/qr-codes-security-shallow-dive
 Libraries and APIs:
 https://developer.what3words.com/tutorial/javascript
 https://www.npmjs.com/package/express-sslify
+
+CSS Hints and Tricks:
+https://stackoverflow.com/questions/3296644/hiding-the-scroll-bar-on-an-html-page
+https://stackoverflow.com/questions/19682557/css-scale-background-image-down-if-larger-than-window-keep-at-100-otherwise/19683628#19683628

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import homelinkWhite from "./../assets/images/homelinkWhite.png";
 import britishFlag from "./../assets/images/britishFlag.png";
 import frenchFlag from "./../assets/images/frenchFlag.png";
+import noun_lang from "./../assets/images/noun_Language_2035628.svg";
 
 function Navbar(props) {
   const [displayDropdown, setDisplayDropdown] = useState(false);
@@ -28,7 +29,7 @@ function Navbar(props) {
       </HomeIcon>
 
       <DropDownList>
-        <Dropbtn onClick={() => toggleDropdown()}>Languages</Dropbtn>
+        <Dropbtn onClick={() => toggleDropdown()}></Dropbtn>
         <DropDownContent>
           {displayDropdown && (
             <>
@@ -77,6 +78,8 @@ const Dropbtn = styled.div`
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  background: url(${noun_lang}) no-repeat;
+  background-size: 100%;
 `;
 
 const DropDownContent = styled.div`
