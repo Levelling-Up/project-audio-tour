@@ -21,11 +21,11 @@ import Navbar from './components/Navbar.jsx';
 function App() {
   const { tours } = UseTours();
   const addr = String(tours[0].image_url);
-  console.log(addr);
+  //console.log(addr);
   const [language, setLanguage] = useState('English')
   const handleLanguage = (lang) => {
     setLanguage(lang);
-    console.log(lang);
+    console.log(language);
   }
 
   return (
@@ -47,7 +47,6 @@ function App() {
         <Route path="/" exact>
           <h1>Welcome</h1>
           {tours[0].image_url}
-          console.log(event.target)
         </Route>
         <Route path="/tours/poi/:id">
           <PoiPage language = {language} />
@@ -68,9 +67,6 @@ function App() {
                 height="300"
               />
             </p>
-
-            <h2>Start editing to see some magic happen!</h2>
-
             <h1>Select a tour</h1>
           </header>
           <main>

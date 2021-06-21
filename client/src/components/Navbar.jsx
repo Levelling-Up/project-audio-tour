@@ -16,11 +16,6 @@ function Navbar({language, handleLanguage}) {
     }
   };
 
-  const selectLanguage = (languageLoc) => {
-    handleLanguage(languageLoc)
-    console.log(languageLoc);
-  };
-
   return (
     <StyledUl>
       <HomeIcon>
@@ -34,7 +29,7 @@ function Navbar({language, handleLanguage}) {
             <>
               <English
                 onClick={() => { 
-                  selectLanguage("English"); 
+                  handleLanguage("English"); 
                   console.log(language)} }
                 className={`${language === "English" ? "selected" : ""}`}
               >
@@ -42,7 +37,7 @@ function Navbar({language, handleLanguage}) {
               </English>
               <French
                 onClick={() => {
-                  selectLanguage("French");
+                  handleLanguage("French");
                   console.log(language)}}
                 className={`${language === "French" ? "selected" : ""}`}
               >
