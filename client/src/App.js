@@ -23,9 +23,9 @@ function App() {
   const addr = String(tours[0].image_url);
   console.log(addr);
   const [language, setLanguage] = useState('English')
-  const handleLanguage = (arg) => {
-    console.log(arg)
-
+  const handleLanguage = (lang) => {
+    setLanguage(lang);
+    console.log(lang);
   }
 
   return (
