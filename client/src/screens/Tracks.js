@@ -32,7 +32,7 @@ function Tracks(props) {
 
   return (
     <Container>
-      <Navbar />
+      <Navbar language={props.lang} setLang={props.selectLanguage}/>
       <Title>{tour}</Title>
       <Row>
         {pointsOfInterest.map((poi, i) => (
