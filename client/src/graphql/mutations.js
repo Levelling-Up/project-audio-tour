@@ -146,7 +146,7 @@ export const createTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -174,7 +174,7 @@ export const updateTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -202,7 +202,7 @@ export const deleteTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -215,6 +215,51 @@ export const deleteTour = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createCode = /* GraphQL */ `
+  mutation CreateCode(
+    $input: CreateCodeInput!
+    $condition: ModelCodeConditionInput
+  ) {
+    createCode(input: $input, condition: $condition) {
+      id
+      code
+      claimed
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateCode = /* GraphQL */ `
+  mutation UpdateCode(
+    $input: UpdateCodeInput!
+    $condition: ModelCodeConditionInput
+  ) {
+    updateCode(input: $input, condition: $condition) {
+      id
+      code
+      claimed
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteCode = /* GraphQL */ `
+  mutation DeleteCode(
+    $input: DeleteCodeInput!
+    $condition: ModelCodeConditionInput
+  ) {
+    deleteCode(input: $input, condition: $condition) {
+      id
+      code
+      claimed
+      email
       createdAt
       updatedAt
     }

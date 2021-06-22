@@ -25,3 +25,9 @@ type Tour @model @key(name: "byTour", fields: ["id"]) {
   author: String
   pointsOfInterests: [PointOfInterest] @connection(keyName: "byTour", fields: ["id"])
 }
+
+type Code @model {
+  code: Int!
+  claimed: Boolean
+  email: String
+}
