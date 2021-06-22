@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { API, graphqlOperation } from 'aws-amplify';
 import styled from "styled-components";
 import { poisDB, toursDB } from "../database.js";
-import Navbar from "./../components/Navbar";
+import Navbar from "../components/Navbar";
 import { listPointOfInterests } from '../graphql/queries';
 
-function Tracks(props) {
+function Pois(props) {
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
 
   const tour = toursDB[0].name;
@@ -94,4 +94,4 @@ const Title = styled.div`
   margin-bottom: 12px;
 `;
 
-export default Tracks;
+export default Pois;

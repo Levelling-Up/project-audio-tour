@@ -8,6 +8,14 @@ import Tour from "./components/Tour1.jsx";
 import PoiPage from "./components/PoiPage1.jsx";
 import "./icons.js";
 import Navbar from './components/Navbar.jsx';
+import Welcome from "./components/Welcome.jsx";
+import Login from "./components/Login.jsx";
+import Tours from "./components/Tours.jsx";
+import End from "./components/End.jsx";
+import Poi from "./components/Poi.jsx";
+import Pois from "./components/Pois.jsx";
+
+
 // import Welcome from "./screens/Welcome";
 // import Tracks from "./screens/Tracks";
 // import Select from "./screens/Select";
@@ -29,60 +37,41 @@ function App() {
   }
 
   return (
-    // <Router>
-    //   <Route path="/" exact component={Welcome} />
-    //   <Route path="/welcome/" exact component={Welcome} />
-    //   <Route path="/tracks/" exact component={Tracks} />
-    //   <Route path="/start/" exact component={StartTour} />
-    //   <Route path="/track/" exact component={Track} />
-    //   <Route path="/access/" exact component={Access} />
-    //   <Route path="/end/" exact component={EndTour} />
-    //   <Route path="/select/" exact component={Select}/>
-    // </Router>
+    
     <Router>
-    <div className="App">
+      <div className="App">
       <Navbar language = {language} handleLanguage = {handleLanguage}/> 
 
       <Switch>
+
         <Route path="/" exact>
-          <h1>Welcome</h1>
-          {tours[0].image_url}
-        </Route>
-        <Route path="/tours/poi/:id">
-          <PoiPage language = {language} />
+          <Welcome language = {language} />
         </Route>
 
-        <Route path="/tours">
-          <header>
-            <h1>Select your tour</h1>
-            {tours[0].image_url}
-
-            <p>
-              <img
-                src={
-                  "https://images.unsplash.com/photo-1503377235941-5c4400135188?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80"
-                }
-                alt={tours[0].poi_id}
-                width="300"
-                height="300"
-              />
-            </p>
-            <h1>Select a tour</h1>
-          </header>
-          <main>
-            {tours &&
-              tours.map((tour) => {
-                return (
-                  <Tour
-                    id={tour.id}
-                    key={tour.id}
-                    image_url={tour.image_url}
-                    audio_url={tour.audio_url}
-                  />
-                );
-              })}
-          </main>
+        <Route path="/login" exact>
+          <Login language = {language} />
         </Route>
+
+        <Route path="/tours" exact>
+          <Tours language = {language} />
+        </Route>
+
+        <Route path="/tours/:id" exact>
+          <Tour language = {language} />
+        </Route>
+
+        <Route path="/tours/:id/pois" exact>
+          <Pois language = {language} />
+        </Route>
+
+        <Route path="/tours/:tour_id/pois/:id">
+          <Poi language = {language} />
+        </Route>
+
+        <Route path="/end">
+          <End language = {language} />
+        </Route>
+
       </Switch>
     </div>
   </Router>

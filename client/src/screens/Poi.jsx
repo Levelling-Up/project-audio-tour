@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import ElementsPlayerTimeline from "../components/ElementsPlayerTimeline";
 import { poisDB, tracksDB, toursDB } from "../database.js";
-import Navbar from "./../components/Navbar";
+import Navbar from "../components/Navbar";
 
 const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
 
-function Track(props) {
+function Poi(props) {
 
   const name = poisDB[0].name;
   const description = tracksDB[0].name;
@@ -238,4 +238,4 @@ const DetailsContainer = styled.div`
   position: relative;
 `;
 
-export default Track;
+export default Poi;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function EndTour(props) {
+function End(props) {
   return (
     <Container>
       <Group>
@@ -55,4 +55,4 @@ const SurveyLink = styled.a`
   letter-spacing: -0.1944444px;
 `;
 
-export default EndTour;
+export default End;

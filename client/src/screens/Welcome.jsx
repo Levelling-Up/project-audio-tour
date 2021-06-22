@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import welcomeImage from "./../assets/images/welcomeImage.jpg";
-import Navbar from "./../components/Navbar"
+import Navbar from "../components/Navbar"
 
 function Welcome() {
 

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "./../components/Navbar";
+import Navbar from "../components/Navbar";
 
-function Access(props) {
+function Login(props) {
   return (
     <Container>
       <Navbar />
@@ -91,4 +91,4 @@ const Text = styled.span`
   /* border: 1px solid orange; */
 `;
 
-export default Access;
+export default Login;
