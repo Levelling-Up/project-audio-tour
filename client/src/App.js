@@ -8,12 +8,12 @@ import Tour from "./components/Tour1.jsx";
 import PoiPage from "./components/PoiPage1.jsx";
 import "./icons.js";
 import Navbar from './components/Navbar.jsx';
-import Welcome from "./components/Welcome.jsx";
-import Login from "./components/Login.jsx";
+import Welcome from "./screens/Welcome.jsx";
+import Login from "./screens/Login.jsx";
 import Tours from "./components/Tours.jsx";
-import End from "./components/End.jsx";
-import Poi from "./components/Poi.jsx";
-import Pois from "./components/Pois.jsx";
+import End from "./screens/End.jsx";
+import Poi from "./screens/Poi.jsx";
+import Pois from "./screens/Pois.jsx";
 
 
 // import Welcome from "./screens/Welcome";
