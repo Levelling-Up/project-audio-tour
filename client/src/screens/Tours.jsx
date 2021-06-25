@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import IcosArrowDown from "../components/IcosArrowDown";
 import { toursDB } from "../database.js";
 import Tour from "../components/Tour"
 

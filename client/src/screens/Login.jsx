@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
 
 function Login(props) {
   return (
@@ -19,7 +18,7 @@ function Login(props) {
           placeholder="Access code"
           autoComplete="off"
         ></AccessCode>
-        
+
         <Text>Or scan your QR code here:</Text>
       </Group>
     </Container>
