@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { API, graphqlOperation } from 'aws-amplify';
 import styled from "styled-components";
+import { useHistory } from "react-router-dom"
 import { poisDB, toursDB } from "../database.js";
-import Navbar from "../components/Navbar";
 import { listPointOfInterests } from '../graphql/queries';
 
 function Pois(props) {
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
 
   const tour = toursDB[0].name;
-  const pois = poisDB;
-  const language = "english";
+  const history = useHistory()
 
   useEffect(() => {
 
@@ -29,19 +28,21 @@ function Pois(props) {
     fetchPointsOfInterest();
   }, [])
 
+  const handleClick = (id) => {
+    history.push(`/tours/${tour.id}/pois/${id}`)
+  }
 
   return (
     <Container>
-      <Navbar />
       <Title>{tour}</Title>
-      <Row>
+      <Grid>
         {pointsOfInterest.map((poi, i) => (
           <TrackContainer key={poi.id}>
-            <POIImage src={poi.imageUrl}></POIImage>
+            <POIImage src={poi.imageUrl} onClick={() => {handleClick(poi.id)}}></POIImage>
             <TrackName>{poi.name}</TrackName>
           </TrackContainer>
         ))}
-      </Row>
+      </Grid>
     </Container>
   );
 }
@@ -78,7 +79,7 @@ const TrackName = styled.span`
   margin-top: 9px;
 `;
 
-const Row = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   overflow: auto;

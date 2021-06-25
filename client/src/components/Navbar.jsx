@@ -29,19 +29,19 @@ function Navbar({language, handleLanguage}) {
             <>
               <English
                 onClick={() => { 
-                  handleLanguage("English"); 
+                  handleLanguage("english"); 
                   console.log(language)} }
-                className={`${language === "English" ? "selected" : ""}`}
+                className={`${language === "english" ? "selected" : ""}`}
               >
                 <img src={britishFlag} alt="British flag" />
               </English>
               <French
                 onClick={() => {
-                  handleLanguage("French");
+                  handleLanguage("french");
                   console.log(language)}}
-                className={`${language === "French" ? "selected" : ""}`}
+                className={`${language === "french" ? "selected" : ""}`}
               >
-                <img src={frenchFlag} alt="French flag" />
+                <img src={frenchFlag} alt="french flag" />
               </French>
             </>
           )}

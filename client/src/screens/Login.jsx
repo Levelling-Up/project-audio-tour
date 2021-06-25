@@ -5,8 +5,6 @@ import Navbar from "../components/Navbar";
 function Login(props) {
   return (
     <Container>
-      <Navbar />
-
       <Logo>
         <h3>Audio Tour Logo</h3>
       </Logo>
@@ -21,6 +19,7 @@ function Login(props) {
           placeholder="Access code"
           autoComplete="off"
         ></AccessCode>
+        
         <Text>Or scan your QR code here:</Text>
       </Group>
     </Container>

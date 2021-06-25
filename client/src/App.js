@@ -10,27 +10,16 @@ import "./icons.js";
 import Navbar from './components/Navbar.jsx';
 import Welcome from "./screens/Welcome.jsx";
 import Login from "./screens/Login.jsx";
-import Tours from "./components/Tours.jsx";
+import Tours from "./screens/Tours.jsx";
 import End from "./screens/End.jsx";
 import Poi from "./screens/Poi.jsx";
 import Pois from "./screens/Pois.jsx";
-
-
-// import Welcome from "./screens/Welcome";
-// import Tracks from "./screens/Tracks";
-// import Select from "./screens/Select";
-// import StartTour from "./screens/StartTour";
-// import Track from "./screens/Track";
-// import Access from "./screens/Access";
-// import EndTour from "./screens/EndTour";
-
-
 
 function App() {
   const { tours } = UseTours();
   const addr = String(tours[0].image_url);
   //console.log(addr);
-  const [language, setLanguage] = useState('English')
+  const [language, setLanguage] = useState('english')
   const handleLanguage = (lang) => {
     setLanguage(lang);
     console.log(language);

@@ -2,17 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import welcomeImage from "./../assets/images/welcomeImage.jpg";
 import Navbar from "../components/Navbar"
+import { Link } from "react-router-dom"
 
 function Welcome() {
 
   return (
     <Container>
-    <Navbar />
       <Logo>
         <h3>Audio Tour Logo</h3>
       </Logo>
       <WelcomeContainer>
         <WelcomeText>Welcome to Audio Tours</WelcomeText>
+        <Link to="/login">Login</Link>
         <WelcomeImage src={welcomeImage}></WelcomeImage>
       </WelcomeContainer>
     </Container>

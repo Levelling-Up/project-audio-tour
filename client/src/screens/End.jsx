@@ -5,7 +5,7 @@ function End(props) {
   return (
     <Container>
       <Group>
-        <End>The End.</End>
+        <EndText>The End.</EndText>
         <SurveyLink href="https://wwww.google.com">Fill in our satisfaction survey</SurveyLink>
       </Group>
     </Container>
@@ -31,7 +31,7 @@ const Group = styled.div`
   margin-top: 166px;
 `;
 
-const End = styled.div`
+const EndText = styled.div`
   padding: 16px;
   text-align: center;
   font-family: Arial;
