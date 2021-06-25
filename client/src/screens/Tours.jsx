@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { toursDB } from "../database.js";
-import Tour from "../components/Tour"
+import SelectTour from "../components/SelectTour"
 
 function Tours(props) {
   return (
@@ -26,11 +26,12 @@ function Tours(props) {
     {toursDB &&
       toursDB.map((tour) => {
         return (
-          <Tour
+          <SelectTour
             id={tour.id}
             key={tour.id}
+            tour_name={tour.name}
             image_url={tour.image_url}
-            audio_url={tour.audio_url}
+            
           />
         );
       })}

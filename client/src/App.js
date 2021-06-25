@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import UseTours from "./Hooks/useTours1.jsx";
-import Tour from "./components/Tour1.jsx";
+import Tour from "./components/Tour.jsx";
 import PoiPage from "./components/PoiPage1.jsx";
 import "./icons.js";
 import Navbar from './components/Navbar.jsx';

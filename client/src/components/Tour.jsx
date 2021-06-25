@@ -13,7 +13,7 @@ const Tour = ({ id, image_url, audio_url }) => {
       <p className="list-tour-name">
         <b>Tour name:</b> {id}
       </p>
-      <button onClick={handleViewClick}>Tour name {id}</button>
+      <button onClick={handleViewClick}>Tour name: Iwona {id}</button>
     </div>
   );
 };
