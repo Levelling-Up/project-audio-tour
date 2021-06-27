@@ -24,7 +24,13 @@ function App() {
     setLanguage(lang);
     console.log(language);
   }
+  const [tour_id, setTour_id] = useState()
+  const callbackFunction = (childData) => {
 
+    setTour_id(childData)
+    
+  }
+  console.log(tour_id)
   return (
     
     <Router>
@@ -42,11 +48,11 @@ function App() {
         </Route>
 
         <Route path="/tours" exact>
-          <Tours language = {language} />
+          <Tours language = {language} callbackFunction = {callbackFunction}/>
         </Route>
 
         <Route path="/tours/:id" exact>
-          <Tour language = {language} />
+          <Tour language = {language} tour_id = {tour_id} />
         </Route>
 
         <Route path="/tours/:id/pois" exact>

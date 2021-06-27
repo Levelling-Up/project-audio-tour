@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { toursDB } from "../database.js";
 import SelectTour from "../components/SelectTour"
 
-function Tours(props) {
+function Tours({callbackFunction}) {
   return (
+    
     <div>
+      <Container>
     <header>
-    <h1>Select your tour</h1>
-    {toursDB[0].image_url}
+    
+      {/* <h1>Select your tour...</h1> */}
+    {/* {toursDB[0].image_url} */}
 
     <p>
       <img
@@ -20,9 +23,12 @@ function Tours(props) {
         height="300"
       />
     </p>
-    <h1>Select a tour</h1>
-  </header>
-  <main>
+      <h1>Select your tour...</h1>
+      
+    </header>
+    </Container>
+    <main>
+
     {toursDB &&
       toursDB.map((tour) => {
         return (
@@ -31,13 +37,22 @@ function Tours(props) {
             key={tour.id}
             tour_name={tour.name}
             image_url={tour.image_url}
+            callbackFunction = {callbackFunction}
             
           />
         );
       })}
+      
   </main>
   </div>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-text: center;
+`;
 
 export default Tours;
