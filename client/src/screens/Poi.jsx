@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ElementsPlayerTimeline from "../components/ElementsPlayerTimeline";
 import { poisDB, tracksDB, toursDB } from "../database.js";
 
 const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";

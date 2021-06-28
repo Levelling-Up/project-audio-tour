@@ -4,7 +4,6 @@ import welcomeImage from "./../assets/images/welcomeImage.jpg";
 import { Link } from "react-router-dom"
 
 function Welcome() {
-
   return (
     <Container>
       <Logo>
@@ -12,7 +11,7 @@ function Welcome() {
       </Logo>
       <WelcomeContainer>
         <WelcomeText>Welcome to Audio Tours</WelcomeText>
-        <Link to="/login">Login</Link>
+        <LoginButton to="/login">Login</LoginButton>
         <WelcomeImage src={welcomeImage}></WelcomeImage>
       </WelcomeContainer>
     </Container>
@@ -34,7 +33,7 @@ const Logo = styled.div`
   margin-top: 50px;
   width: 55%;
   height: 95px;
-  background: blue;
+  background-color: rgb(52, 152, 219);
   font-size: 26px;
   color: whitesmoke;
   border-radius: 100px/80px;
@@ -50,9 +49,20 @@ const WelcomeContainer = styled.div`
 
 const WelcomeText = styled.div`
   display: flex;
-  width: 40%;
+  width: 48%;
   font-size: 30px;
-  color: blue;
+  font-weight: bolder;
+  color: rgb(52, 152, 219);
+`;
+
+const LoginButton = styled(Link)`
+  font-weight: bolder;
+  text-decoration: none;
+  background-color: rgb(40, 116, 166);
+  color: whitesmoke;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 50px;
 `;
 
 const WelcomeImage = styled.img`
@@ -60,7 +70,6 @@ const WelcomeImage = styled.img`
   width: 100%;
   height: auto;
   margin-top: 70px;
-
 `;
 
 export default Welcome;

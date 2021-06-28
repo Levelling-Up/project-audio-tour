@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import homelinkWhite from "./../assets/images/homelinkWhite.png";
 import britishFlag from "./../assets/images/britishFlag.png";
@@ -18,7 +19,7 @@ function Navbar({language, handleLanguage}) {
 
   return (
     <StyledUl>
-      <HomeIcon>
+      <HomeIcon to="/">
         <img src={homelinkWhite} alt="home"/>
       </HomeIcon>
 
@@ -55,14 +56,17 @@ const StyledUl = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: rgba(29,27,37,1);
+  background-color: rgb(33, 97, 140);
 `;
 
-const HomeIcon = styled.a`
+const HomeIcon = styled(Link)`
   display: flex;
   img {
     height: 30px;
     margin: 5px;
+  }
+  &:hover {
+    background-color: rgb(40, 116, 166);
   }
 `;
 
@@ -107,7 +111,7 @@ const English = styled.a`
     opacity: 0.5;
   }
   &.selected {
-    border: 2px solid blue;
+    border: 2px solid rgb(52, 152, 219);
   }
 `;
 
@@ -120,7 +124,7 @@ const French = styled.a`
     opacity: 0.5;
   }
   &.selected {
-    border: 2px solid blue;
+    border: 2px solid rgb(52, 152, 219);
   }
 `;
 
