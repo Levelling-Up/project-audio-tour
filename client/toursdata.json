@@ -4,36 +4,42 @@
         "id": 1,
         "name": "Victoria",
         "image_url": "",
-        "user_id": "1"
+        "user_id": "1",
+        "pois": []
     },
     {
         "id": 2,
         "name": "Tour 2",
         "image_url": "",
-        "user_id": "1"
+        "user_id": "1",
+        "pois": []
     },
     {
         "id": 3,
         "name": "Tour 3",
         "image_url": "",
-        "user_id": "1"
+        "user_id": "1",
+        "pois": []
     },
     {
         "id": 4,
         "name": "Tour 4",
         "image_url": "",
-        "user_id": "1"
+        "user_id": "1",
+        "pois": []
     },
     {
         "id": 5,
         "name": "Tour 5",
         "image_url": "",
-        "user_id": "1"
+        "user_id": "1",
+        "pois": []
     },
     {
         "id": 6,
         "name": "Tour 6",
         "image_url": "",
-        "user_id": "1"
+        "user_id": "1",
+        "pois": []
     }
 ]

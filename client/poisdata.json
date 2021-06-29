@@ -5,7 +5,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_1_welcome.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_2_canal.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_3_leaving_the_basin.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_4_rosemount_park.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_5_friars_brae_bridge.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_6_winding_hole.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_7_st_michael_church.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_8_houses_on_left.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_9_pass_through_the_basin.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_10_learmonth_gardens_doocot.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 11,
@@ -85,7 +95,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_11_manse_road_bridge.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 12,
@@ -93,7 +104,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_12_st_magdalene.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 13,
@@ -101,7 +113,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_13_east_winding_hole.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 14,
@@ -109,7 +122,8 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_1_welcome.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     },
     {
         "id": 15,
@@ -117,6 +131,7 @@
         "image_url": "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/track_1_welcome.jpg",
         "tour_id": "1",
         "latitude": "",
-        "longitude": ""
+        "longitude": "",
+        "tracks": []
     }
 ]
