@@ -36,7 +36,7 @@ for(i = 0; i < 100; i+= 1){
 
     docClient.put(params, function(err, data) {
        if (err) {
-           console.error("Unable to add code ", i, ". Error JSON:", JSON.stringify(err, null, 2));
+           console.error("Unable to add code: ", i, ". Error JSON:", JSON.stringify(err, null, 2));
        } else {
            console.log("PutItem succeeded: ", i);
        }
