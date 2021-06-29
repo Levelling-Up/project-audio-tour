@@ -95,7 +95,7 @@ export const getTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -125,9 +125,40 @@ export const listTours = /* GraphQL */ `
         name
         imageUrl
         author
-        pointsOfInterest {
+        pointsOfInterests {
           nextToken
         }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCode = /* GraphQL */ `
+  query GetCode($id: ID!) {
+    getCode(id: $id) {
+      id
+      code
+      claimed
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCodes = /* GraphQL */ `
+  query ListCodes(
+    $filter: ModelCodeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCodes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        code
+        claimed
+        email
         createdAt
         updatedAt
       }

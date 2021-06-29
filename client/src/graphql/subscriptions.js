@@ -125,7 +125,7 @@ export const onCreateTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -150,7 +150,7 @@ export const onUpdateTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -175,7 +175,7 @@ export const onDeleteTour = /* GraphQL */ `
       name
       imageUrl
       author
-      pointsOfInterest {
+      pointsOfInterests {
         items {
           id
           name
@@ -188,6 +188,42 @@ export const onDeleteTour = /* GraphQL */ `
         }
         nextToken
       }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateCode = /* GraphQL */ `
+  subscription OnCreateCode {
+    onCreateCode {
+      id
+      code
+      claimed
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateCode = /* GraphQL */ `
+  subscription OnUpdateCode {
+    onUpdateCode {
+      id
+      code
+      claimed
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteCode = /* GraphQL */ `
+  subscription OnDeleteCode {
+    onDeleteCode {
+      id
+      code
+      claimed
+      email
       createdAt
       updatedAt
     }
