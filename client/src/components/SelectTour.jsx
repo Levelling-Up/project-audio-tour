@@ -53,6 +53,9 @@ const ButtonImg = styled.img.attrs({
   width: 150px;
   height: 150px;
   border: 1px solid blue;
+  &:hover {
+    opacity: 0.5;
+  }
   `; 
 
 const Container = styled.div`
