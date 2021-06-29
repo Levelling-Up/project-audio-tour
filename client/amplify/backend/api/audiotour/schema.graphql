@@ -1,0 +1,33 @@
+type Track @model @key(name: "byTrack", fields: ["id"]) 
+  @key(name: "byPOI", fields: ["pointOfInterestId"]) {
+  id: ID!
+  name: String!
+  language: String!
+  audioUrl: String!
+  pointOfInterestId: ID!
+}
+
+type PointOfInterest @model @key(name: "byPointOfInterest", fields: ["id"])
+  @key(name: "byTour", fields: ["tourId"]) {
+  id: ID!
+  name: String!
+  imageUrl: String!
+  lat: String
+  lon: String
+  tourId: ID!
+  tracks: [Track] @connection(keyName: "byPOI", fields: ["id"])
+}
+
+type Tour @model @key(name: "byTour", fields: ["id"]) {
+  id: ID!
+  name: String!
+  imageUrl: String!
+  author: String
+  pointsOfInterests: [PointOfInterest] @connection(keyName: "byTour", fields: ["id"])
+}
+
+type Code @model {
+  code: Int!
+  claimed: Boolean
+  email: String
+}

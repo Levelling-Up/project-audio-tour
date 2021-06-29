@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-function EndTour(props) {
+function End(props) {
   return (
     <Container>
       <Group>
-        <End>The End.</End>
+        <EndText>The End.</EndText>
         <SurveyLink href="https://wwww.google.com">Fill in our satisfaction survey</SurveyLink>
       </Group>
     </Container>
@@ -31,7 +31,7 @@ const Group = styled.div`
   margin-top: 166px;
 `;
 
-const End = styled.div`
+const EndText = styled.div`
   padding: 16px;
   text-align: center;
   font-family: Arial;
@@ -55,4 +55,4 @@ const SurveyLink = styled.a`
   letter-spacing: -0.1944444px;
 `;
 
-export default EndTour;
+export default End;
