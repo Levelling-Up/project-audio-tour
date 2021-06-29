@@ -4,7 +4,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UseTours from "./Hooks/useTours1.jsx";
-import Tour from "./components/Tour1.jsx";
+import Tour from "./components/Tour.jsx";
+import PoiPage from "./components/PoiPage1.jsx";
 import "./icons.js";
 import Navbar from './components/Navbar.jsx';
 import Welcome from "./screens/Welcome.jsx";
@@ -23,7 +24,13 @@ function App() {
     setLanguage(lang);
     console.log(language);
   }
+  const [tour_id, setTour_id] = useState()
+  const callbackFunction = (childData) => {
 
+    setTour_id(childData)
+    
+  }
+  console.log(tour_id)
   return (
     
     <Router>
@@ -41,11 +48,11 @@ function App() {
         </Route>
 
         <Route path="/tours" exact>
-          <Tours language = {language} />
+          <Tours language = {language} callbackFunction = {callbackFunction}/>
         </Route>
 
         <Route path="/tours/:id" exact>
-          <Tour language = {language} />
+          <Tour language = {language} tour_id = {tour_id} />
         </Route>
 
         <Route path="/tours/:id/pois" exact>
