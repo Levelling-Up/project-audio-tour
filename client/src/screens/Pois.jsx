@@ -49,7 +49,6 @@ function Pois(props) {
 
 const Container = styled.div`
   display: flex;
-  background-color: rgba(29,27,37,1);
   flex-direction: column;
   height: 100vh;
   width: 100vw;
@@ -89,9 +88,10 @@ const Title = styled.div`
   font-family: Arial;
   background-color: transparent;
   text-align: center;
-  color: rgba(255,255,255,1);
-  font-size: 24px;
-  margin-top: 8px;
+  color: rgb(40, 116, 166);
+  font-size: 35px;
+  font-weight: bolder;
+  margin-top: 20px;
   margin-bottom: 12px;
 `;
 

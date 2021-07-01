@@ -10,7 +10,8 @@ function Welcome() {
         <h3>Audio Tour Logo</h3>
       </Logo>
       <WelcomeContainer>
-        <WelcomeText>Welcome to Audio Tours</WelcomeText>
+        <WelcomeText1>Welcome to our</WelcomeText1>
+        <WelcomeText2>Audio Tours</WelcomeText2>
         <LoginButton to="/login">Login</LoginButton>
         <WelcomeImage src={welcomeImage}></WelcomeImage>
       </WelcomeContainer>
@@ -22,7 +23,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 `;
 
 const Logo = styled.div`
@@ -31,37 +31,46 @@ const Logo = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-  width: 55%;
-  height: 95px;
-  background-color: rgb(52, 152, 219);
+  width: 70%;
+  height: 125px;
+  background-color: rgb(40, 116, 166);
   font-size: 26px;
   color: whitesmoke;
-  border-radius: 100px/80px;
+  border-radius: 140px/65px;
 `;
 
 const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
-  width: 80%;
+  margin-top: 50px;
+  width: 90%;
 `;
 
-const WelcomeText = styled.div`
+const WelcomeText1 = styled.div`
   display: flex;
-  width: 48%;
-  font-size: 30px;
+  font-family: Arial;
+  font-size: 35px;
   font-weight: bolder;
-  color: rgb(52, 152, 219);
+  color: rgb(40, 116, 166);
+`;
+
+const WelcomeText2 = styled.div`
+  display: flex;
+  font-family: Arial;
+  font-size: 35px;
+  font-weight: bolder;
+  color: rgb(40, 116, 166);
 `;
 
 const LoginButton = styled(Link)`
+  font-size: 20px;
   font-weight: bolder;
   text-decoration: none;
   background-color: rgb(40, 116, 166);
   color: whitesmoke;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 50px;
 `;
 
@@ -69,7 +78,8 @@ const WelcomeImage = styled.img`
   display: flex;
   width: 100%;
   height: auto;
-  margin-top: 70px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 `;
 
 export default Welcome;

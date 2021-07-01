@@ -10,45 +10,40 @@ const Tour = ({ tour_id, image_url, audio_url }) => {
     history.push(`/tours/${tour_id}/pois`);
   };
 
-  
-
   return (
-    
-    <div className="tour">
-      <Container>
-      <header>
-        <h1> Start Your Tour {tour_id} </h1>
-      </header>
-      </Container>
-      <Container>
-      <main>
-      
-      {/* <p className="list-tour-name">
-        <b>Start Your Tour</b> {tour_id}
-      </p> */}
+    <Container>
+      <StartText>Start Your Tour {tour_id}</StartText>
+
       <StyledButton onClick={handleViewClick}> Tour {tour_id}</StyledButton>
-      </main>
-      </Container>
-      
-    </div>
-    
-    
+    </Container>
   );
 };
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-text: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StartText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  font-size: 35px;
+  font-weight: bolder;
+  color: rgb(40, 116, 166);
 `;
 
 const StyledButton = styled.button`
-    background-color: #21618c;
-    font-size: 32px;
-    color: white;
-    min-width: 50px;
-    min-height: 50px;
-    `;
+  background-color: rgb(40, 116, 166);
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 50px;
+  margin-top: 40px;
+`;
 
 export default Tour;

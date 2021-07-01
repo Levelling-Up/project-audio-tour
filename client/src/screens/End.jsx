@@ -4,55 +4,48 @@ import styled from "styled-components";
 function End(props) {
   return (
     <Container>
-      <Group>
-        <EndText>The End.</EndText>
+    <Logo>
+        <h3>Audio Tour Logo</h3>
+      </Logo>
+        <EndText>The End</EndText>
         <SurveyLink href="https://wwww.google.com">Fill in our satisfaction survey</SurveyLink>
-      </Group>
     </Container>
   );
 }
 
 const Container = styled.div`
   display: flex;
-  background-color: rgba(29,27,37,1);
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
 `;
 
-const Group = styled.div`
-  height: 125px;
-  width: 220px;
-  flex-direction: column;
+const Logo = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 166px;
+  margin-top: 50px;
+  width: 70%;
+  height: 125px;
+  background-color: rgb(40, 116, 166);
+  font-size: 26px;
+  color: whitesmoke;
+  border-radius: 140px/65px;
 `;
 
 const EndText = styled.div`
-  padding: 16px;
-  text-align: center;
+  display: flex;
   font-family: Arial;
-  height: 14px;
-  width: 143px;
-  color: rgba(254,248,238,1);
-  align-items: center;
-  font-size: 14px;
-  letter-spacing: -0.1944444px;
-  box-shadow: 0px 2px 5px  1px rgba(254,248,238,0.6788100090579711) ;
+  font-size: 35px;
+  font-weight: bolder;
+  color: rgb(40, 116, 166);
+  margin-top: 40px;
 `;
 
 const SurveyLink = styled.a`
-  padding: 16px;
-  text-align: center;
-  font-family: Arial;
-  height: 32px;
-  width: 220px;
-  color: rgba(254,248,238,1);
+  color: rgb(40, 116, 166);
   font-size: 14px;
-  letter-spacing: -0.1944444px;
+  margin-top: 50px;
 `;
 
 export default End;

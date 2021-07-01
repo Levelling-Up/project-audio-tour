@@ -39,12 +39,12 @@ const Logo = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-  width: 55%;
-  height: 95px;
-  background-color: rgb(52, 152, 219);
+  width: 70%;
+  height: 125px;
+  background-color: rgb(40, 116, 166);
   font-size: 26px;
   color: whitesmoke;
-  border-radius: 100px/80px;
+  border-radius: 140px/65px;
 `;
 
 const Group = styled.div`
@@ -57,48 +57,50 @@ const Group = styled.div`
 const AccessCodeLabel = styled.label`
   display: flex;
   font-family: Arial;
+  font-size: 35px;
+  font-weight: bolder;
   height: 70px;
-  width: 265px;
-  color: rgb(52, 152, 219);
+  width: 60%;
+  color: rgb(40, 116, 166);
   text-align: center;
-  font-size: 30px;
   margin-top: 50px;
   margin-bottom: 30px;
-  /* border: 1px solid red; */
 `;
 
 const AccessCode = styled.input`
   display: flex;
   font-family: Arial;
   height: 40px;
-  width: 250px;
-  color: rgb(52, 152, 219);
+  width: 60%;
+  color: rgb(40, 116, 166);
   /* text-align: left; */
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 40px;
   padding: 12px;
-  border: 2px solid rgb(52, 152, 219);
+  border: 2px solid rgb(40, 116, 166);
 `;
 
 const SubmitButton = styled(Link)`
+  font-size: 20px;
   font-weight: bolder;
   text-decoration: none;
   background-color: rgb(40, 116, 166);
   color: whitesmoke;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 50px;
 `;
 
 const Text = styled.span`
   display: flex;
   font-family: Arial;
-  color: rgb(52, 152, 219);
+  color: rgb(40, 116, 166);
   text-align: center;
   width: 260px;
   font-size: 30px;
+  font-weight: bolder;
   margin-top: 40px;
-  /* border: 1px solid orange; */
+  margin-bottom: 40px;
 `;
 
 export default Login;
