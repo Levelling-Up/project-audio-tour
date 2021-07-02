@@ -25,10 +25,18 @@ console.log("Seeding Codes into DynamoDB. Please wait.");
 
 let i;
 for(i = 0; i < 100; i+= 1){
+    let code;
+    if(i < 10){
+        code = "000" + i
+    } else if(i < 100){
+        code = "00" + i
+    } else if(i < 1000){
+        code = "0" + i
+    }
     var params = {
         TableName: "Code",
         Item: {
-            "code":  i,
+            "code":  code,
             "email": "",
             "claimed":  false
         }
