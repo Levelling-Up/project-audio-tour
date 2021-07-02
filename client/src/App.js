@@ -26,11 +26,10 @@ function App() {
   }
   const [tour_id, setTour_id] = useState()
   const callbackFunction = (childData) => {
-
     setTour_id(childData)
-    
+    console.log(tour_id)
   }
-  console.log(tour_id)
+  
   return (
     
     <Router>
