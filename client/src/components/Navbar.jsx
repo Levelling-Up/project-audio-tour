@@ -62,11 +62,11 @@ const StyledUl = styled.div`
 const HomeIcon = styled(Link)`
   display: flex;
   img {
-    height: 30px;
-    margin: 5px;
+    height: 40px;
+    margin: 10px;
   }
   &:hover {
-    background-color: rgb(40, 116, 166);
+    opacity: 0.5;
   }
 `;
 
@@ -75,11 +75,15 @@ const StyledLi = styled.li`
   justify-content: center;
 `;
 
-const Dropbtn = styled.div`
+const Dropbtn = styled.button`
   color: white;
+  background-color: rgb(33, 97, 140);
+  border: none;
+  font-size: 20px;
+  font-weight: bolder;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
+  cursor: pointer;
 `;
 
 const DropDownContent = styled.div`
@@ -95,7 +99,7 @@ const DropDownContent = styled.div`
 const DropDownList = styled(StyledLi)`
   display: inline-block;
   &:hover {
-    background-color: grey;
+    opacity: 0.5;
   }
   &:hover ${DropDownContent} {
     

@@ -9,7 +9,6 @@ const SelectTour = ({ id, image_url, tour_name, callbackFunction }) => {
     history.push(`/tours/${id}`);
   };
   
-
   return (
     
     <div className="list-tour">
@@ -24,12 +23,9 @@ const SelectTour = ({ id, image_url, tour_name, callbackFunction }) => {
           handleViewClick();
          callbackFunction(id)}} /></StyledButton> */}
 
-        <StyledButton>
            <ButtonImg onClick={() =>{
           handleViewClick();
-         callbackFunction(id)}}></ButtonImg>
-         </StyledButton>
-         
+         callbackFunction(id)}}></ButtonImg>  
          
       </Container>   
     </div>
@@ -37,28 +33,22 @@ const SelectTour = ({ id, image_url, tour_name, callbackFunction }) => {
   );
 };
 
-const StyledButton = styled.button`
-    background-color: #21618c;
-    font-size: 32px;
-    color: white;
-    min-width: 100px;
-    min-height: 100px;
-    `;
-
 
 // src: url(${props => props.src});
 const ButtonImg = styled.img.attrs({
   src: "https://images.unsplash.com/photo-1503377235941-5c4400135188?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80"
 })`
-  width: 150px;
-  height: 150px;
-  border: 1px solid blue;
+  width: 60%;
+  &:hover {
+    opacity: 0.5;
+  }
   `; 
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+  font-size: 24px;
+  color: rgb(40, 116, 166);
 `;
 export default SelectTour;

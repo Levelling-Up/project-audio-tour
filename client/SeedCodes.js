@@ -49,4 +49,5 @@ for(i = 0; i < 100; i+= 1){
            console.log("PutItem succeeded: ", i);
        }
     });
+
 }
