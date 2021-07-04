@@ -1,4 +1,4 @@
-type Track @model @key(name: "byTrack", fields: ["id"]) 
+type Track @model @auth(rules: [{ allow: public }]) @key(name: "byTrack", fields: ["id"]) 
   @key(name: "byPOI", fields: ["pointOfInterestId"])
   @key(name: "byPoiByLang", fields: ["pointOfInterestId", "language"]) {
   id: ID!
@@ -8,7 +8,7 @@ type Track @model @key(name: "byTrack", fields: ["id"])
   pointOfInterestId: ID!
 }
 
-type PointOfInterest @model @key(name: "byPointOfInterest", fields: ["id"])
+type PointOfInterest @model @auth(rules: [{ allow: public }]) @key(name: "byPointOfInterest", fields: ["id"])
   @key(name: "byTour", fields: ["tourId"]) {
   id: ID!
   name: String!
@@ -19,7 +19,7 @@ type PointOfInterest @model @key(name: "byPointOfInterest", fields: ["id"])
   tracks: [Track] @connection(keyName: "byPOI", fields: ["id"])
 }
 
-type Tour @model @key(name: "byTour", fields: ["id"]) {
+type Tour @model @auth(rules: [{ allow: public }]) @key(name: "byTour", fields: ["id"]) {
   id: ID!
   name: String!
   imageUrl: String!
@@ -27,7 +27,7 @@ type Tour @model @key(name: "byTour", fields: ["id"]) {
   pointsOfInterests: [PointOfInterest] @connection(keyName: "byTour", fields: ["id"])
 }
 
-type Code @model {
+type Code @model @auth(rules: [{ allow: public }]) {
   code: Int!
   claimed: Boolean
   email: String
