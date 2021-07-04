@@ -166,3 +166,29 @@ export const listCodes = /* GraphQL */ `
     }
   }
 `;
+
+export const poisByTour = /* GraphQL */ `
+query PoisByTour {
+  poisByTour(tourId: $id){
+    items{
+      id
+      name
+      imageUrl
+      lat
+      lon
+      tourId
+      tracks {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  } 
+}`;
+
+`query tracksByPoiByLang {
+  
+
+}`
+

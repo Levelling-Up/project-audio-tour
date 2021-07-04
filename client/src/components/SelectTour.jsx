@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-const SelectTour = ({ id, image_url, tour_name, callbackFunction }) => {
+const SelectTour = ({ id, image_url, tour_name, handleTourId }) => {
   const history = useHistory();
 
   const handleViewClick = () => {
@@ -24,8 +24,9 @@ const SelectTour = ({ id, image_url, tour_name, callbackFunction }) => {
          callbackFunction(id)}} /></StyledButton> */}
 
            <ButtonImg onClick={() =>{
-          handleViewClick();
-         callbackFunction(id)}}></ButtonImg>  
+              handleViewClick();
+              handleTourId(id)}}>
+           </ButtonImg>  
          
       </Container>   
     </div>

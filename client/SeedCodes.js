@@ -24,7 +24,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 console.log("Seeding Codes into DynamoDB. Please wait.");
 
 let i;
-for(i = 0; i < 100; i+= 1){
+for(i = 0; i < 1000; i+= 1){
     let code;
     if(i < 10){
         code = "000" + i
