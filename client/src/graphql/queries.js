@@ -167,28 +167,27 @@ export const listCodes = /* GraphQL */ `
   }
 `;
 
-export const poisByTour = /* GraphQL */ `
-query PoisByTour {
-  poisByTour(tourId: $id){
-    items{
+export const byTour = 
+`query MyQuery {
+  listPointOfInterests(filter: {tourId: {eq: "03ac3526-e26d-4cbb-90b2-b5a498cfd4b5"}}) {
+    items {
+      tourId
+      imageUrl
       id
       name
-      imageUrl
-      lat
-      lon
-      tourId
-      tracks {
-        nextToken
-      }
-      createdAt
-      updatedAt
     }
-    nextToken
-  } 
+  }
 }`;
 
-`query tracksByPoiByLang {
-  
-
-}`
-
+export const byLangByPoi = 
+`query MyQuery2 {
+  listTracks(filter: {language: {eq: "english"}, and: {pointOfInterestId: {eq: "efe46e1c-4ed6-4b70-befa-4f395ee75da5"}}}) {
+    items {
+      audioUrl
+      id
+      language
+      name
+      pointOfInterestId
+    }
+  }
+}`;
