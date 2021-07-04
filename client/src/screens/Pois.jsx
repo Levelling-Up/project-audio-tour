@@ -3,15 +3,28 @@ import { API, graphqlOperation } from 'aws-amplify';
 import styled from "styled-components";
 import { useHistory } from "react-router-dom"
 import { poisDB, toursDB } from "../database.js";
-import { listPointOfInterests } from '../graphql/queries';
+import { getTrack, listPointOfInterests } from '../graphql/queries';
 
-function Pois(props) {
+function Pois({tour_id, language}) {
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
-
-  const tour = toursDB[0].name;
+  const [tour, setTour] = useState({});
   const history = useHistory()
 
   useEffect(() => {
+    const fetchTour = async () => {
+      try {
+        const result = await API.graphql(graphqlOperation(getTrack(tour_id)));
+        if (result.data){
+          console.log(result.data.getTour.items);
+          setTour(result.data.getTour.items);
+        }else{
+          setTour([])
+        }
+      } catch(error){
+        console.log(error)
+      }
+    }
+    fetchTour();
 
     const fetchPointsOfInterest = async () => {
       try {
@@ -25,6 +38,7 @@ function Pois(props) {
         console.log(error)
       }
     }
+    
     fetchPointsOfInterest();
   }, [])
 

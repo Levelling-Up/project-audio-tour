@@ -1,8 +1,26 @@
-import { tracksDB } from "../database.js";
-import { useState } from "react";
+import { useEffect , useState } from "react";
+import { API, graphqlOperation } from 'aws-amplify'
+import { listTours } from '../graphql/queries';
 
-const UseTours1 = () => {
-  const [tours, setTours] = useState(tracksDB);
+const UseTours = () => {
+  const [tours, setTours] = useState([]);
+
+  useEffect(() => {
+
+    const fetchTours = async () => {
+      try {
+        const result = await API.graphql(graphqlOperation(listTours));
+        if (result.data){
+          setTours(result.data.listTours.items)
+        }else{
+          setTours([])
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchTours();
+  }, [])
 
   //setTours(tracksDB);
   return {
@@ -10,4 +28,4 @@ const UseTours1 = () => {
   };
 };
 
-export default UseTours1;
+export default UseTours;

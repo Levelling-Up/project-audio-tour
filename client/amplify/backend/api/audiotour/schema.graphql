@@ -1,5 +1,6 @@
 type Track @model @key(name: "byTrack", fields: ["id"]) 
-  @key(name: "byPOI", fields: ["pointOfInterestId"]) {
+  @key(name: "byPOI", fields: ["pointOfInterestId"])
+  @key(name: "byPoiByLang", fields: ["pointOfInterestId", "language"]) {
   id: ID!
   name: String!
   language: String!

@@ -46,4 +46,6 @@ This should open up the AWS console.
 
 1. Navigate to the following directory `project-audio-tour/client`
 
+1. You will need to run `amplify pull`
+
 1. You can now run `amplify env checkout dev` which will set you up with the dev environment
