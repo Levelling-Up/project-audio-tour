@@ -2,6 +2,7 @@
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import React, { useState } from "react";
+import Amplify, { Auth } from "@aws-amplify/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import UseTours from "./Hooks/useTours1.jsx";
 import Tour from "./components/Tour.jsx";
@@ -14,6 +15,8 @@ import Tours from "./screens/Tours.jsx";
 import End from "./screens/End.jsx";
 import Poi from "./screens/Poi.jsx";
 import Pois from "./screens/Pois.jsx";
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 
 function App() {
   //const addr = String(tours[0].image_url);

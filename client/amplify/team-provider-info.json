@@ -10,6 +10,11 @@
       "StackName": "amplify-audiotour-dev-192620",
       "StackId": "arn:aws:cloudformation:eu-west-2:787043571137:stack/amplify-audiotour-dev-192620/8692f650-cae2-11eb-bac7-0a3502851c12",
       "AmplifyAppId": "d28v1koy6jjnq8"
+    },
+    "categories": {
+      "auth": {
+        "audiotourdbf642cf": {}
+      }
     }
   }
 }
