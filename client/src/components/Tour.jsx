@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { toursDB } from "../database.js";
 import styled from "styled-components";
 
 const Tour = ({ tour_id, image_url, audio_url }) => {

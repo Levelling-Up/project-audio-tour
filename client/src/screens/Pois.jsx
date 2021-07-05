@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom"
 //import { poisDB, toursDB } from "../database.js";
 import { getTour, listPointOfInterests } from '../graphql/queries';
 
-function Pois({tour_id, language}) {
+function Pois({tour_id, language, handlePoiId}) {
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
   const [tour, setTour] = useState({});
   const history = useHistory()
@@ -25,10 +25,16 @@ function Pois({tour_id, language}) {
       }
     }
     fetchTour();
-
+    //console.log(tour);
     const fetchPointsOfInterest = async () => {
+      // Query with filters, limits, and pagination
+      let filter = {
+        tourId: {
+            eq: tour_id // filter for the current tour id
+        }
+      };
       try {
-        const result = await API.graphql(graphqlOperation(listPointOfInterests));
+        const result = await API.graphql({ query: listPointOfInterests, variables: { filter: filter}});
         if (result.data){
           setPointsOfInterest(result.data.listPointOfInterests.items)
         }else{
@@ -40,7 +46,7 @@ function Pois({tour_id, language}) {
     }
     
     fetchPointsOfInterest();
-  }, [tour_id])
+  }, [tour_id, tour])
 
   const handleClick = (id) => {
     history.push(`/tours/${tour.id}/pois/${id}`)
@@ -52,7 +58,10 @@ function Pois({tour_id, language}) {
       <Grid>
         {pointsOfInterest.map((poi, i) => (
           <TrackContainer key={poi.id}>
-            <POIImage src={poi.imageUrl} onClick={() => {handleClick(poi.id)}}></POIImage>
+            <POIImage src={poi.imageUrl} onClick={() => {
+              handleClick(poi.id);
+              handlePoiId(poi.id);
+              }}></POIImage>
             <TrackName>{poi.name}</TrackName>
           </TrackContainer>
         ))}

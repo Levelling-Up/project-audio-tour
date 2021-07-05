@@ -14,9 +14,12 @@
 */
 var AWS = require("aws-sdk");
 var fs = require('fs');
+var Amplify = require("@aws-amplify/core");
+var awsconfig = require('./aws-exports');
+Amplify.configure(awsconfig);
 
 AWS.config.update({
-    region: "us-west-2",
+    region: "eu-west-2",
     endpoint: "http://localhost:8000"
 });
 
@@ -24,26 +27,26 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 console.log("Importing tours into DynamoDB. Please wait.");
 
-var allTours = JSON.parse(fs.readFileSync('toursdata.json', 'utf8'));
-allTours.forEach(function(tour) {
-    var params = {
-        TableName: "Tour",
-        Item: {
-            "name":  tour.name,
-            "imageUrl": tour.image_url,
-            "pointsofInterests":  tour.pois,
-            "author": tour.user_id    
-        }
-    };
+// var allTours = JSON.parse(fs.readFileSync('toursdata.json', 'utf8'));
+// allTours.forEach(function(tour) {
+//     var params = {
+//         TableName: "Tour",
+//         Item: {
+//             "name":  tour.name,
+//             "imageUrl": tour.image_url,
+//             "pointsofInterests":  tour.pois,
+//             "author": tour.user_id    
+//         }
+//     };
 
-    docClient.put(params, function(err, data) {
-       if (err) {
-           console.error("Unable to add tour", tour.name, ". Error JSON:", JSON.stringify(err, null, 2));
-       } else {
-           console.log("PutItem succeeded:", tour.name);
-       }
-    });
-});
+//     docClient.put(params, function(err, data) {
+//        if (err) {
+//            console.error("Unable to add tour", tour.name, ". Error JSON:", JSON.stringify(err, null, 2));
+//        } else {
+//            console.log("PutItem succeeded:", tour.name);
+//        }
+//     });
+// });
 
 // console.log("Importing PointsOfInterests into DynamoDB. Please wait.");
 
@@ -72,23 +75,23 @@ allTours.forEach(function(tour) {
 
 // console.log("Importing tracks into DynamoDB. Please wait.");
 
-// var allTracks = JSON.parse(fs.readFileSync('tracksdata.json', 'utf8'));
-// allTracks.forEach(function(track) {
-//     var params = {
-//         TableName: "Track",
-//         Item: {
-//             "name":  track.name,
-//             "language": track.language,
-//             "audioUrl": track.audio_url,
-//             "pointOfInterestId":  track.poi_id    
-//         }
-//     };
+var allTracks = JSON.parse(fs.readFileSync('tracksdata.json', 'utf8'));
+allTracks.forEach(function(track) {
+    var params = {
+        TableName: "Track",
+        Item: {
+            "name":  track.name,
+            "language": track.language,
+            "audioUrl": track.audio_url,
+            "pointOfInterestId":  track.poi_id    
+        }
+    };
 
-//     docClient.put(params, function(err, data) {
-//        if (err) {
-//            console.error("Unable to add track", track.name, ". Error JSON:", JSON.stringify(err, null, 2));
-//        } else {
-//            console.log("PutItem succeeded:", track.name);
-//        }
-//     });
-// });
+    docClient.put(params, function(err, data) {
+       if (err) {
+           console.error("Unable to add track", track.name, ". Error JSON:", JSON.stringify(err, null, 2));
+       } else {
+           console.log("PutItem succeeded:", track.name);
+       }
+    });
+});

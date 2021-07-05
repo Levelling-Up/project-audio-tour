@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { poisDB, tracksDB, toursDB } from "../database.js";
+import { API } from 'aws-amplify';
+import { listTracks } from '../graphql/queries';
 
 const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
 
 function Poi(props) {
+  const [tracks, setTracks] = useState([])
 
-  const name = poisDB[0].name;
-  const description = tracksDB[0].name;
-  const language = toursDB[0].name;
-  const audio_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Victoria-English-Track-1_6738168_1621775430.mp3";
-  
+  useEffect(() => {
+    const ac = new AbortController();
+    const fetchTrack = async () => {
+      // Query with filters, limits, and pagination
+      let filter = {
+        and: [{ language: {eq: props.language} },
+        {pointOfInterestId: {eq: props.poi_id}}]
+      };
+      try {
+        const result = await API.graphql({ query: listTracks, variables: { filter: filter}});
+        if (result.data){
+          console.log("yay")
+          setTracks(result.data.listTracks.items)
+        }else{
+          console.log("nay")
+          setTracks([])
+        }
+      } catch (error) {
+        console.log("uhoh")
+        console.log(error)
+      }
+    }
+    
+    fetchTrack();
+    return () => ac.abort(); // Abort both fetches on unmount
+    
+  },[props.language, props.poi_id, tracks]);
 
   return (
     <Container>
@@ -61,16 +85,16 @@ function Poi(props) {
         </Mask>
       </MediaPlayer>
       <audio controls preload="auto">
-        <source src={audio_url} type="audio/mp3"/>
+        <source src={tracks[0].audioUrl} type="audio/mp3"/>
       </audio>
     
     
       <DetailsContainer>
         <TitleContainer>
-          <NamePOI>{name}</NamePOI>
+          <NamePOI>{tracks[0].name}</NamePOI>
         </TitleContainer>
         <Description>
-          {description}
+          {tracks[0].name}
         </Description>
         <ExpanderContainer>
           <ViewFullTextRow>

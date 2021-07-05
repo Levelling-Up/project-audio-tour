@@ -37,11 +37,12 @@ function App() {
     //Fetch 2: get the Pois for that tour and save it in state
     setPois()
     //Fetch 3: get all the tracks in the correct language for the pois of the tour and save in state
-    console.log(tour_id)
+    console.log(id)
   }
 
   const handlePoiId = (id) => {
     setPoi(id)
+    console.log(id)
   }
   
   return (
@@ -73,7 +74,7 @@ function App() {
         </Route>
 
         <Route path="/tours/:tour_id/pois/:id">
-          <Poi language = {language} tour_id = {tour_id} poi_id = { poi.id }/>
+          <Poi language = {language} tour_id = {tour_id} poi_id = { poi }/>
         </Route>
 
         <Route path="/end">
