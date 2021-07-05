@@ -27,14 +27,21 @@ function App() {
     console.log(language);
   }
   const [tour_id, setTour_id] = useState("")
+  const [pois, setPois] = useState("")
+  const [poi, setPoi] = useState("")
+
   const handleTourId = (id) => {
     setTour_id(id)
     //this is where we fetch all the data for the rest of the app
     //Fetch 1: get the Tour and save it in state
     //Fetch 2: get the Pois for that tour and save it in state
+    setPois()
     //Fetch 3: get all the tracks in the correct language for the pois of the tour and save in state
-
     console.log(tour_id)
+  }
+
+  const handlePoiId = (id) => {
+    setPoi(id)
   }
   
   return (
@@ -62,11 +69,11 @@ function App() {
         </Route>
 
         <Route path="/tours/:id/pois" exact>
-          <Pois language = {language} tour_id = {tour_id} />
+          <Pois language = {language} tour_id = {tour_id} handlePoiId = {handlePoiId}/>
         </Route>
 
         <Route path="/tours/:tour_id/pois/:id">
-          <Poi language = {language} tour_id = {tour_id}/>
+          <Poi language = {language} tour_id = {tour_id} poi_id = { poi.id }/>
         </Route>
 
         <Route path="/end">

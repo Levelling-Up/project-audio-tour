@@ -14,7 +14,7 @@ const SelectTour = ({ id, image_url, tour_name, handleTourId }) => {
     <div className="list-tour">
       <Container>
       <p className="list-tour-name">
-        <b>Tour name:</b> {tour_name}
+        <b>{tour_name}</b> 
       </p>
       {/* <button onClick={() =>{
           handleViewClick();

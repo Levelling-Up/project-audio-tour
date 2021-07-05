@@ -64,11 +64,4 @@ const SelectHeader = styled.div`
   color: rgb(40, 116, 166);
 `;
 
-const TourPicture = styled.img`
-  display: flex;
-  width: 80%;
-  height: auto;
-  margin-top: 20px;
-`;
-
 export default Tours;

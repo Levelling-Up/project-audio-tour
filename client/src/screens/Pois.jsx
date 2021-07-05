@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { API, graphqlOperation } from 'aws-amplify';
 import styled from "styled-components";
 import { useHistory } from "react-router-dom"
-import { poisDB, toursDB } from "../database.js";
-import { getTrack, listPointOfInterests } from '../graphql/queries';
+//import { poisDB, toursDB } from "../database.js";
+import { getTour, listPointOfInterests } from '../graphql/queries';
 
 function Pois({tour_id, language}) {
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
@@ -13,10 +13,10 @@ function Pois({tour_id, language}) {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const result = await API.graphql(graphqlOperation(getTrack(tour_id)));
+        //TODO there's a problem with this fetch request
+        const result = await API.graphql(graphqlOperation(getTour, { id: tour_id }));
         if (result.data){
-          console.log(result.data.getTour.items);
-          setTour(result.data.getTour.items);
+          setTour(result.data.getTour);
         }else{
           setTour([])
         }
@@ -40,7 +40,7 @@ function Pois({tour_id, language}) {
     }
     
     fetchPointsOfInterest();
-  }, [])
+  }, [tour_id])
 
   const handleClick = (id) => {
     history.push(`/tours/${tour.id}/pois/${id}`)
@@ -48,7 +48,7 @@ function Pois({tour_id, language}) {
 
   return (
     <Container>
-      <Title>{tour}</Title>
+      <Title>{tour.name}</Title>
       <Grid>
         {pointsOfInterest.map((poi, i) => (
           <TrackContainer key={poi.id}>
