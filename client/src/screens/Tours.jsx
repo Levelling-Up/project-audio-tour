@@ -32,19 +32,21 @@ function Tours({ handleTourId }) {
         {/* <h1>Select your tour...</h1> */}
         {/* {toursDB[0].image_url} */}
         <SelectHeader>Select your tour...</SelectHeader>
-
+        <ToursContainer>
         {tours &&
           tours.map((tour) => {
+            console.log(tour)
             return (
               <SelectTour
                 id={tour.id}
                 key={tour.id}
                 tour_name={tour.name}
-                image_url={tour.image_url}
+                imageUrl={tour.imageUrl}
                 handleTourId={handleTourId}
               />
             );
           })}
+          </ToursContainer>
       </Container>
     </div>
   );
@@ -54,7 +56,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 25px;
 `;
+
+const ToursContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  column-width: 50px
+  overflow: auto;
+`;
+
 
 const SelectHeader = styled.div`
   margin-top: 20px;
