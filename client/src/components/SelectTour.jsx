@@ -29,7 +29,7 @@ const SelectTour = ({ id, imageUrl, tour_name, handleTourId }) => {
               onClick={() =>{
               
               handleViewClick();
-              handleTourId(id)}}>
+              handleTourId(id, imageUrl, tour_name)}}>
            </ButtonImg>  
          
       </Container>   

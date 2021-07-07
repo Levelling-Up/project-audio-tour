@@ -7,11 +7,7 @@ import { listTours } from '../graphql/queries';
 import useTours from '../Hooks/useTours'
 
 function Tours({ handleTourId }) {
-  // const [tours, setTours] = useState([])
-  // const tourData = useTours()
-  // useEffect((tourData)=> {
-  //   setTours(tourData)
-  // },[])
+  
   const {tours} = useTours()
   
   
