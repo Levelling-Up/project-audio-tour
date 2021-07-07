@@ -14,9 +14,23 @@
 */
 var AWS = require("aws-sdk");
 var fs = require('fs');
-var Amplify = require("@aws-amplify/core");
-var awsconfig = require('./aws-exports');
-Amplify.configure(awsconfig);
+//var Amplify = require("@aws-amplify/core");
+//var awsconfig = require('./src/aws-exports');
+
+// const awsconfig = {
+//     "aws_project_region": "eu-west-2",
+//     "aws_appsync_graphqlEndpoint": "https://uww5wbiqznhjngzc3kuqpsyp5i.appsync-api.eu-west-2.amazonaws.com/graphql",
+//     "aws_appsync_region": "eu-west-2",
+//     "aws_appsync_authenticationType": "API_KEY",
+//     "aws_appsync_apiKey": "da2-fxmfonl2frb5ll6pvm4zm37r2q",
+//     "aws_cognito_identity_pool_id": "eu-west-2:5f516461-e040-4ca6-b5fc-db25a48c3f2f",
+//     "aws_cognito_region": "eu-west-2",
+//     "aws_user_pools_id": "eu-west-2_PsfF9rFyZ",
+//     "aws_user_pools_web_client_id": "69e5nu37ktcmu920inf9bha0gj",
+//     "oauth": {}
+// };
+//console.log(Amplify);
+//Amplify.configure(awsconfig);
 
 AWS.config.update({
     region: "eu-west-2",
@@ -25,7 +39,7 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-console.log("Importing tours into DynamoDB. Please wait.");
+console.log("Importing tracks into DynamoDB. Please wait.");
 
 // var allTours = JSON.parse(fs.readFileSync('toursdata.json', 'utf8'));
 // allTours.forEach(function(tour) {
@@ -80,9 +94,11 @@ allTracks.forEach(function(track) {
     var params = {
         TableName: "Track",
         Item: {
+            "order": track.order,
             "name":  track.name,
             "language": track.language,
             "audioUrl": track.audio_url,
+            "imageUrl": track.image_url,
             "pointOfInterestId":  track.poi_id    
         }
     };
