@@ -27,11 +27,15 @@ function App() {
     console.log(language);
   }
   const [tour_id, setTour_id] = useState("")
+  const[imageUrl, setImageUrl] = useState("")
+  const[tour_name, setTour_name] = useState("")
   const [pois, setPois] = useState("")
   const [poi, setPoi] = useState("")
 
-  const handleTourId = (id) => {
+  const handleTourId = (id, imageUrl, tour_name) => {
     setTour_id(id)
+    setImageUrl(imageUrl)
+    setTour_name(tour_name)
     //this is where we fetch all the data for the rest of the app
     //Fetch 1: get the Tour and save it in state
     //Fetch 2: get the Pois for that tour and save it in state
@@ -66,7 +70,7 @@ function App() {
         </Route>
 
         <Route path="/tours/:id" exact>
-          <Tour language = {language} tour_id = {tour_id} />
+          <Tour language = {language} tour_id = {tour_id} imageUrl = {imageUrl} tour_name = {tour_name} />
         </Route>
 
         <Route path="/tours/:id/pois" exact>
