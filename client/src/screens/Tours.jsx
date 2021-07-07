@@ -4,27 +4,33 @@ import styled from "styled-components";
 //import { toursDB } from "../database.js";
 import SelectTour from "../components/SelectTour";
 import { listTours } from '../graphql/queries';
+import useTours from '../Hooks/useTours'
 
 function Tours({ handleTourId }) {
+  // const [tours, setTours] = useState([])
+  // const tourData = useTours()
+  // useEffect((tourData)=> {
+  //   setTours(tourData)
+  // },[])
+  const {tours} = useTours()
+  
+  
+  // useEffect(() => {
 
-  const [tours, setTours] = useState([])
-
-  useEffect(() => {
-
-    const fetchTours = async () => {
-      try {
-        const result = await API.graphql(graphqlOperation(listTours));
-        if (result.data){
-          setTours(result.data.listTours.items)
-        }else{
-          setTours([])
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchTours();
-  }, [])
+  //   const fetchTours = async () => {
+  //     try {
+  //       const result = await API.graphql(graphqlOperation(listTours));
+  //       if (result.data){
+  //         setTours(result.data.listTours.items)
+  //       }else{
+  //         setTours([])
+  //       }
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   fetchTours();
+  // }, [])
 
   return (
     <div>
@@ -53,6 +59,8 @@ function Tours({ handleTourId }) {
 }
 
 const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,9 +68,10 @@ const Container = styled.div`
 `;
 
 const ToursContainer = styled.div`
+  height: 70qvh;
+  width: 50vw;
   display: flex;
   flex-direction: column;
-  column-width: 50px
   overflow: auto;
 `;
 
