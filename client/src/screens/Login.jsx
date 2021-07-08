@@ -2,26 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { listCodes } from '../graphql/queries';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
+import { useHistory } from "react-router-dom";
 
 function Login(props) {
+
+  const history = useHistory();
 
   const fetchCode = async () => {
     try {
       let filter = {
-        code: {
-          //TODO add filter for claimed boolean AND for email
-            eq: "20" // filter for the current tour id
-        }
+        and:[
+        {code: {
+            eq: "20"//TODO add code state variable
+        }},
+        {claimed: {
+            eq: true
+        }},
+        {email: {
+            eq: "ecalogero@gmail.com"//TODO add email state variable
+        }}
+      ]
       };
       const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
       if (result.data){
-        console.log(result.data)
-        //history.push()
-        //setTours(result.data.listTours.items)
+        console.log(result.data.listCodes.items[0])
+        history.push("/tours")
       }else{
-        console.log("no data")
-        //setTours([])
+        console.log("error, we could not find any evidence of you having purchased this code")
       }
     } catch (error) {
       console.log(error)
@@ -35,6 +43,15 @@ function Login(props) {
       </Logo>
 
       <Group>
+      <EmailLabel htmlFor="email-input">
+          Enter your email address here:
+        </EmailLabel>
+        <EmailInput
+          name="email-input"
+          type="text"
+          placeholder="Email"
+          autoComplete="on"
+        ></EmailInput>
         <AccessCodeLabel htmlFor="access-code">
           Enter your access code here:
         </AccessCodeLabel>
@@ -44,7 +61,7 @@ function Login(props) {
           placeholder="Access code"
           autoComplete="off"
         ></AccessCode>
-        <SubmitButton to="/tours" onClick={() => {
+        <SubmitButton onClick={() => {
           fetchCode();
           }} >Submit</SubmitButton>
 
