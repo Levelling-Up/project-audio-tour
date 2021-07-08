@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { listCodes } from '../graphql/queries';
 import InputWithLabel from "../components/InputWithLabel";
@@ -6,45 +6,57 @@ import { API } from 'aws-amplify';
 import { useHistory } from "react-router-dom";
 
 function Login(props) {
-
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
+  
+  const [userData, setUserData] = useState({email: "", code: ""});
+  const [challenge, setChallenge] = useState({email: "", code: ""});
   const history = useHistory();
 
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  }
-
-  const handleCode = (event) => {
-    setCode(event.target.value);
-  }
-
-  const fetchCode = async () => {
-    try {
-      let filter = {
-        and:[
-        {code: {
-            eq: {code}
-        }},
-        {claimed: {
-            eq: true
-        }},
-        {email: {
-            eq: {email}
-        }}
-      ]
-      };
-      const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
-      if (result.data.listCodes.items[0]){
-        console.log(result.data.listCodes.items[0])
-        history.push("/tours")
-      }else{
-        console.log("error, we could not find any evidence of you having purchased this code")
-      }
-    } catch (error) {
-      console.log(error)
+  const handleInput = (event) => {
+    //This won't be necessary in React 17
+    event.persist()
+    if(event.target.id === "email-input"){
+      setUserData(prevState => {
+        return {...prevState, email: event.target.value }
+      });
+    } else if(event.target.id === "code-input"){
+      setUserData(prevState => {
+        return {...prevState, code: event.target.value }
+      });
     }
+
   }
+
+  useEffect(() => {
+
+    const fetchCode = async () => {
+      try {
+        let filter = {
+          and:[
+          {code: {
+              eq: challenge.code
+          }},
+          {claimed: {
+              eq: true
+          }},
+          {email: {
+              eq: challenge.email
+          }}
+        ]
+        };
+        const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
+        if (result.data.listCodes.items[0]){
+          console.log(result.data.listCodes.items[0])
+          history.push("/tours")
+        }else{
+          console.log("error, we could not find any evidence of you having purchased this code")
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchCode()
+  },[challenge, history])
 
   return (
     <Container>
@@ -53,11 +65,12 @@ function Login(props) {
       </Logo>
 
       <Group>
-        <InputWithLabel id="email-input" label="Email:" value={email} onInputChange={handleEmail} ></InputWithLabel>
-        <InputWithLabel id="code-input" type="number" label="Code:" value={code} onInputChange={handleCode} ></InputWithLabel>
+        <InputWithLabel id="email-input" label="Email:" value={userData.email} onInputChange={handleInput} ></InputWithLabel>
+        <InputWithLabel id="code-input" type="number" label="Code:" value={userData.code} onInputChange={handleInput} ></InputWithLabel>
         <SubmitButton onClick={() => {
-          fetchCode();
-          }} >Submit</SubmitButton>
+          setChallenge({ code: userData.code, email: userData.email }
+          );
+        }} >Submit</SubmitButton>
 
         <Text>Or scan your QR code here:</Text>
       </Group>

@@ -5,7 +5,7 @@ const InputWithLabel = ({id, label, value, type = "text", onInputChange}) => (
     <>
         <InputLabel htmlFor={id}> {label}</InputLabel>
         &nbsp;
-        <InputBox id={id} type={type} value={value} onChange={onInputChange}/>
+        <InputBox id={id} type={type} value={value} onChange={onInputChange}  autoComplete="off"/>
     </>
 )
 
