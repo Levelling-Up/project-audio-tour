@@ -1,31 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { listCodes } from '../graphql/queries';
+import InputWithLabel from "../components/InputWithLabel";
 import { API } from 'aws-amplify';
 import { useHistory } from "react-router-dom";
 
 function Login(props) {
 
+  const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
   const history = useHistory();
+
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const handleCode = (event) => {
+    setCode(event.target.value);
+  }
 
   const fetchCode = async () => {
     try {
       let filter = {
         and:[
         {code: {
-            eq: "20"//TODO add code state variable
+            eq: {code}
         }},
         {claimed: {
             eq: true
         }},
         {email: {
-            eq: "ecalogero@gmail.com"//TODO add email state variable
+            eq: {email}
         }}
       ]
       };
       const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
-      if (result.data){
+      if (result.data.listCodes.items[0]){
         console.log(result.data.listCodes.items[0])
         history.push("/tours")
       }else{
@@ -43,24 +53,8 @@ function Login(props) {
       </Logo>
 
       <Group>
-      <EmailLabel htmlFor="email-input">
-          Enter your email address here:
-        </EmailLabel>
-        <EmailInput
-          name="email-input"
-          type="text"
-          placeholder="Email"
-          autoComplete="on"
-        ></EmailInput>
-        <AccessCodeLabel htmlFor="access-code">
-          Enter your access code here:
-        </AccessCodeLabel>
-        <AccessCode
-          name="access-code"
-          type="text"
-          placeholder="Access code"
-          autoComplete="off"
-        ></AccessCode>
+        <InputWithLabel id="email-input" label="Email:" value={email} onInputChange={handleEmail} ></InputWithLabel>
+        <InputWithLabel id="code-input" type="number" label="Code:" value={code} onInputChange={handleCode} ></InputWithLabel>
         <SubmitButton onClick={() => {
           fetchCode();
           }} >Submit</SubmitButton>
@@ -96,35 +90,10 @@ const Group = styled.div`
   flex-direction: column;
   align-items: center;
   width: 333px;
+  margin-top: 30px;
 `;
 
-const AccessCodeLabel = styled.label`
-  display: flex;
-  font-family: Arial;
-  font-size: 35px;
-  font-weight: bolder;
-  height: 70px;
-  width: 60%;
-  color: rgb(40, 116, 166);
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 30px;
-`;
-
-const AccessCode = styled.input`
-  display: flex;
-  font-family: Arial;
-  height: 40px;
-  width: 60%;
-  color: rgb(40, 116, 166);
-  /* text-align: left; */
-  font-size: 25px;
-  margin-top: 40px;
-  padding: 12px;
-  border: 2px solid rgb(40, 116, 166);
-`;
-
-const SubmitButton = styled(Link)`
+const SubmitButton = styled.button`
   font-size: 20px;
   font-weight: bolder;
   text-decoration: none;
