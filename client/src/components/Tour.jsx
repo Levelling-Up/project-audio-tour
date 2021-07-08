@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-const Tour = ({ tour_id, image_url, audio_url }) => {
+const Tour = ({ language, tour_id, imageUrl, tour_name }) => {
   const history = useHistory();
 
   const handleViewClick = () => {
@@ -11,9 +11,13 @@ const Tour = ({ tour_id, image_url, audio_url }) => {
 
   return (
     <Container>
-      <StartText>Start Your Tour {tour_id}</StartText>
 
-      <StyledButton onClick={handleViewClick}> Tour {tour_id}</StyledButton>
+      <TourImg src={imageUrl}></TourImg>
+      <StartText>Start Your Tour: {tour_name}</StartText>
+
+      
+
+      <StyledButton onClick={handleViewClick}> Start {tour_name}</StyledButton>
     </Container>
   );
 };
@@ -44,5 +48,14 @@ const StyledButton = styled.button`
   border-radius: 50px;
   margin-top: 40px;
 `;
+
+const TourImg = styled.img`
+  margin-top: 40px;
+  width: 20%;
+  height: 20%
+  border-radius: 4px;
+  
+  }
+  `;
 
 export default Tour;
