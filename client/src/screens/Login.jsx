@@ -1,8 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { listCodes } from '../graphql/queries';
+import { API, graphqlOperation } from 'aws-amplify';
 
 function Login(props) {
+
+  const fetchCode = async () => {
+    try {
+      let filter = {
+        code: {
+          //TODO add filter for claimed boolean AND for email
+            eq: "20" // filter for the current tour id
+        }
+      };
+      const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
+      if (result.data){
+        console.log(result.data)
+        //history.push()
+        //setTours(result.data.listTours.items)
+      }else{
+        console.log("no data")
+        //setTours([])
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Container>
       <Logo>
@@ -19,7 +44,9 @@ function Login(props) {
           placeholder="Access code"
           autoComplete="off"
         ></AccessCode>
-        <SubmitButton to="/tours">Submit</SubmitButton>
+        <SubmitButton to="/tours" onClick={() => {
+          fetchCode();
+          }} >Submit</SubmitButton>
 
         <Text>Or scan your QR code here:</Text>
       </Group>

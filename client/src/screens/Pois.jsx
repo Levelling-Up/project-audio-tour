@@ -11,20 +11,20 @@ function Pois({tour_id, language, handlePoiId}) {
   const history = useHistory()
 
   useEffect(() => {
-    const fetchTour = async () => {
-      try {
-        //TODO there's a problem with this fetch request
-        const result = await API.graphql(graphqlOperation(getTour, { id: tour_id }));
-        if (result.data){
-          setTour(result.data.getTour);
-        }else{
-          setTour([])
-        }
-      } catch(error){
-        console.log(error)
-      }
-    }
-    fetchTour();
+    // const fetchTour = async () => {
+    //   try {
+    //     //TODO there's a problem with this fetch request
+    //     const result = await API.graphql(graphqlOperation(getTour, { id: tour_id }));
+    //     if (result.data){
+    //       setTour(result.data.getTour);
+    //     }else{
+    //       setTour([])
+    //     }
+    //   } catch(error){
+    //     console.log(error)
+    //   }
+    // }
+    // fetchTour();
     //console.log(tour);
     const fetchPointsOfInterest = async () => {
       // Query with filters, limits, and pagination

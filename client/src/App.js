@@ -18,6 +18,8 @@ import Pois from "./screens/Pois.jsx";
 import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
+
+
 function App() {
   //const addr = String(tours[0].image_url);
   //console.log(addr);
@@ -28,7 +30,7 @@ function App() {
   }
   const [tour_id, setTour_id] = useState("")
   const [pois, setPois] = useState("")
-  const [poi, setPoi] = useState("")
+  const [poiId, setPoiId] = useState("")
 
   const handleTourId = (id) => {
     setTour_id(id)
@@ -41,7 +43,7 @@ function App() {
   }
 
   const handlePoiId = (id) => {
-    setPoi(id)
+    setPoiId(id)
     console.log(id)
   }
   
@@ -74,7 +76,7 @@ function App() {
         </Route>
 
         <Route path="/tours/:tour_id/pois/:id">
-          <Poi language = {language} tour_id = {tour_id} poi_id = { poi }/>
+          <Poi language = {language} tour_id = {tour_id} poi_id = { poiId }/>
         </Route>
 
         <Route path="/end">
