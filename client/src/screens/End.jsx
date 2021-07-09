@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
+import { UserContext } from "../UserContext";
 
 function End(props) {
+  const {user,setUser} = useContext(UserContext);
   return (
     <Container>
     <Logo>

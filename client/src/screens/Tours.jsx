@@ -1,13 +1,14 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect , useState, useContext} from "react";
 import { API, graphqlOperation } from 'aws-amplify';
 import styled from "styled-components";
 //import { toursDB } from "../database.js";
 import SelectTour from "../components/SelectTour";
 import { listTours } from '../graphql/queries';
 import useTours from '../Hooks/useTours'
+import { UserContext } from "../UserContext";
 
 function Tours({ handleTourId }) {
-  
+  const {user,setUser} = useContext(UserContext);
   const {tours} = useTours()
   
   

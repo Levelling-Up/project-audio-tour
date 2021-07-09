@@ -2,6 +2,7 @@
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import React, { useState } from "react";
+import UserContext from "./UserContext.js"
 import Amplify, { Auth } from "@aws-amplify/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import UseTours from "./Hooks/useTours1.jsx";
@@ -19,10 +20,10 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 
-
 function App() {
   //const addr = String(tours[0].image_url);
   //console.log(addr);
+  const [user, setUser] = useState(null)
   const [language, setLanguage] = useState('english')
   const handleLanguage = (lang) => {
     setLanguage(lang);
@@ -62,31 +63,31 @@ function App() {
         <Route path="/" exact>
           <Welcome language = {language} />
         </Route>
+        <UserContext.Provider value={{user, setUser}}>
+          <Route path="/login" exact>
+            <Login language = {language} />
+          </Route>
+        
+          <Route path="/tours" exact>
+            <Tours language = {language} handleTourId = {handleTourId}/>
+          </Route>
 
-        <Route path="/login" exact>
-          <Login language = {language} />
-        </Route>
+          <Route path="/tours/:id" exact>
+            <Tour language = {language} tour_id = {tour_id} imageUrl = {imageUrl} tour_name = {tour_name} />
+          </Route>
 
-        <Route path="/tours" exact>
-          <Tours language = {language} handleTourId = {handleTourId}/>
-        </Route>
+          <Route path="/tours/:id/pois" exact>
+            <Pois language = {language} tour_id = {tour_id} handlePoiId = {handlePoiId}/>
+          </Route>
 
-        <Route path="/tours/:id" exact>
-          <Tour language = {language} tour_id = {tour_id} imageUrl = {imageUrl} tour_name = {tour_name} />
-        </Route>
+          <Route path="/tours/:tour_id/pois/:id">
+            <Poi language = {language} tour_id = {tour_id} poi_id = { poiId }/>
+          </Route>
 
-        <Route path="/tours/:id/pois" exact>
-          <Pois language = {language} tour_id = {tour_id} handlePoiId = {handlePoiId}/>
-        </Route>
-
-        <Route path="/tours/:tour_id/pois/:id">
-          <Poi language = {language} tour_id = {tour_id} poi_id = { poiId }/>
-        </Route>
-
-        <Route path="/end">
-          <End language = {language} />
-        </Route>
-
+          <Route path="/end">
+            <End language = {language} />
+          </Route>
+        </UserContext.Provider>
       </Switch>
     </div>
   </Router>

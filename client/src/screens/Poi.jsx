@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { API } from 'aws-amplify';
 import { listTracks } from '../graphql/queries';
+import { UserContext } from "../UserContext";
 
 const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
 
 function Poi(props) {
+  const {user,setUser} = useContext(UserContext);
   const [tracks, setTracks] = useState([])
 
   useEffect(() => {
