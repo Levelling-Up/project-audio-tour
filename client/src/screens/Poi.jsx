@@ -20,6 +20,7 @@ function Poi(props) {
         const result = await API.graphql({ query: listTracks, variables: { filter: filter}});
         if (result.data){
           console.log("yay")
+          console.log(result.data)
           setTracks(result.data.listTracks.items)
         }else{
           console.log("nay")
@@ -85,16 +86,16 @@ function Poi(props) {
         </Mask>
       </MediaPlayer>
       <audio controls preload="auto">
-        <source src={tracks[0].audioUrl} type="audio/mp3"/>
+        {/* <source src={tracks[0].audioUrl} type="audio/mp3"/> */}
       </audio>
     
     
       <DetailsContainer>
         <TitleContainer>
-          <NamePOI>{tracks[0].name}</NamePOI>
+          {/* <NamePOI>{tracks[0].name}</NamePOI> */}
         </TitleContainer>
         <Description>
-          {tracks[0].name}
+          {/* {tracks[0].name} */}
         </Description>
         <ExpanderContainer>
           <ViewFullTextRow>
