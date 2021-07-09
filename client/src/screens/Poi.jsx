@@ -5,19 +5,57 @@ import { listTracks } from '../graphql/queries';
 
 const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
 
-function Poi(props) {
+function Poi({language, tour_id, poi_id}) {
   const [tracks, setTracks] = useState([])
 
+  // useEffect(() => {
+  //   const ac = new AbortController();
+  //   const fetchTrack = async () => {
+  //     // Query with filters, limits, and pagination
+  //     let filter = {
+  //       and: [{ language: {eq: props.language} },
+  //       {pointOfInterestId: {eq: props.poi_id}}]
+  //     };
+  //     try {
+  //       const result = await API.graphql({ query: listTracks, variables: { filter: filter}});
+  //       if (result.data){
+  //         console.log("yay")
+  //         console.log(result.data)
+  //         setTracks(result.data.listTracks.items)
+  //       }else{
+  //         console.log("nay")
+  //         setTracks([])
+  //       }
+  //     } catch (error) {
+  //       console.log("uhoh")
+  //       console.log(error)
+  //     }
+  //   }
+    
+  //   fetchTrack();
+  //   return () => ac.abort(); // Abort both fetches on unmount
+    
+  // },[props.language, props.poi_id, tracks]);
+
+
+
+
+
+
+  // 
+  
   useEffect(() => {
     const ac = new AbortController();
+    const opts = { signal: ac.signal };
     const fetchTrack = async () => {
       // Query with filters, limits, and pagination
-      let filter = {
-        and: [{ language: {eq: props.language} },
-        {pointOfInterestId: {eq: props.poi_id}}]
-      };
+      
+       let filter = {
+         and: [{ language: {eq: language} },
+         {pointOfInterestId: {eq: poi_id}}]
+       };
       try {
-        const result = await API.graphql({ query: listTracks, variables: { filter: filter}});
+        const result = await API.graphql({ query: listTracks, variables: { filter: filter}}, {opts} );
         if (result.data){
           console.log("yay")
           console.log(result.data)
@@ -35,7 +73,11 @@ function Poi(props) {
     fetchTrack();
     return () => ac.abort(); // Abort both fetches on unmount
     
-  },[props.language, props.poi_id, tracks]);
+  },[language, poi_id]);
+
+
+
+
 
   return (
     <Container>
