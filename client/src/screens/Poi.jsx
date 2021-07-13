@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { API } from 'aws-amplify';
 import { listTracks } from '../graphql/queries';
 
-const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
+//const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
 
 function Poi({language, tour_id, poi_id}) {
   const [tracks, setTracks] = useState([])
@@ -60,6 +60,7 @@ function Poi({language, tour_id, poi_id}) {
           console.log("yay")
           console.log(result.data)
           setTracks(result.data.listTracks.items)
+          console.log(tracks)
         }else{
           console.log("nay")
           setTracks([])
@@ -127,9 +128,10 @@ function Poi({language, tour_id, poi_id}) {
           </Mask1>
         </Mask>
       </MediaPlayer>
-      <audio controls preload="auto">
-        {/* <source src={tracks[0].audioUrl} type="audio/mp3"/> */}
-      </audio>
+      
+       { tracks.length !==0 && <audio controls preload = 'auto'>
+        {<source src={tracks[0].audioUrl} type="audio/mp3"/> }
+      </audio> }
     
     
       <DetailsContainer>
@@ -196,12 +198,12 @@ const Mask = styled.div`
   flex-direction: column;
   display: flex;
 `;
-
+// background-image: url(${image_url});
 const Mask1 = styled.div`
   height: 243px;
   width: 400px;
   overflow: hidden;
-  background-image: url(${image_url});
+  
   background-size: cover;
   background-position: center;
   background-color: rgba(0,0,0,0.3);

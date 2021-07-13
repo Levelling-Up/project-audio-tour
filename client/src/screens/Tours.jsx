@@ -68,9 +68,9 @@ const ToursContainer = styled.div`
   width: 50vw;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  
 `;
-
+// overflow: auto;
 
 const SelectHeader = styled.div`
   margin-top: 20px;
