@@ -10,21 +10,7 @@ function Pois({tour_id, language, tour_name, handlePoiId}) {
   const [tour, setTour] = useState({});
   const history = useHistory()
 
-   useEffect(() => {
-  //   const fetchTour = async () => {
-  //     try {
-  //       //TODO there's a problem with this fetch request
-  //       const result = await API.graphql(graphqlOperation(getTour, { id: tour_id }));
-  //       if (result.data){
-  //         setTour(result.data.getTour);
-  //       }else{
-  //         setTour([])
-  //       }
-  //     } catch(error){
-  //       console.log(error)
-  //     }
-  //   }
-  //   fetchTour();
+  useEffect(() => {
     //console.log(tour);
     const fetchPointsOfInterest = async () => {
       // Query with filters, limits, and pagination

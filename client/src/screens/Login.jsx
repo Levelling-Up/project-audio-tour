@@ -1,8 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { listCodes } from '../graphql/queries';
+import InputWithLabel from "../components/InputWithLabel";
+import { API } from 'aws-amplify';
+import { useHistory } from "react-router-dom";
 
 function Login(props) {
+  
+  const [userData, setUserData] = useState({email: "", code: ""});
+  const [challenge, setChallenge] = useState({email: "", code: ""});
+  const history = useHistory();
+
+  const handleInput = (event) => {
+    //This won't be necessary in React 17
+    event.persist()
+    if(event.target.id === "email-input"){
+      setUserData(prevState => {
+        return {...prevState, email: event.target.value }
+      });
+    } else if(event.target.id === "code-input"){
+      setUserData(prevState => {
+        return {...prevState, code: event.target.value }
+      });
+    }
+
+  }
+
+  useEffect(() => {
+
+    const fetchCode = async () => {
+      try {
+        let filter = {
+          and:[
+          {code: {
+              eq: challenge.code
+          }},
+          {claimed: {
+              eq: true
+          }},
+          {email: {
+              eq: challenge.email
+          }}
+        ]
+        };
+        const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
+        if (result.data.listCodes.items[0]){
+          console.log(result.data.listCodes.items[0])
+          history.push("/tours")
+        }else{
+          console.log("error, we could not find any evidence of you having purchased this code")
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchCode()
+  },[challenge, history])
+
   return (
     <Container>
       <Logo>
@@ -10,16 +65,12 @@ function Login(props) {
       </Logo>
 
       <Group>
-        <AccessCodeLabel htmlFor="access-code">
-          Enter your access code here:
-        </AccessCodeLabel>
-        <AccessCode
-          name="access-code"
-          type="text"
-          placeholder="Access code"
-          autoComplete="off"
-        ></AccessCode>
-        <SubmitButton to="/tours">Submit</SubmitButton>
+        <InputWithLabel id="email-input" label="Email:" value={userData.email} onInputChange={handleInput} ></InputWithLabel>
+        <InputWithLabel id="code-input" type="number" label="Code:" value={userData.code} onInputChange={handleInput} ></InputWithLabel>
+        <SubmitButton onClick={() => {
+          setChallenge({ code: userData.code, email: userData.email }
+          );
+        }} >Submit</SubmitButton>
 
         <Text>Or scan your QR code here:</Text>
       </Group>
@@ -52,35 +103,10 @@ const Group = styled.div`
   flex-direction: column;
   align-items: center;
   width: 333px;
+  margin-top: 30px;
 `;
 
-const AccessCodeLabel = styled.label`
-  display: flex;
-  font-family: Arial;
-  font-size: 35px;
-  font-weight: bolder;
-  height: 70px;
-  width: 60%;
-  color: rgb(40, 116, 166);
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 30px;
-`;
-
-const AccessCode = styled.input`
-  display: flex;
-  font-family: Arial;
-  height: 40px;
-  width: 60%;
-  color: rgb(40, 116, 166);
-  /* text-align: left; */
-  font-size: 25px;
-  margin-top: 40px;
-  padding: 12px;
-  border: 2px solid rgb(40, 116, 166);
-`;
-
-const SubmitButton = styled(Link)`
+const SubmitButton = styled.button`
   font-size: 20px;
   font-weight: bolder;
   text-decoration: none;

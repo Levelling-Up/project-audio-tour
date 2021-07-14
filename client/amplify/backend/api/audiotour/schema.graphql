@@ -28,7 +28,7 @@ type Tour @model @key(name: "byTour", fields: ["id"]) {
 }
 
 type Code @model {
-  code: Int!
+  code: String!
   claimed: Boolean
   email: String
 }
