@@ -8,9 +8,10 @@ import useTours from '../Hooks/useTours'
 import { UserContext } from "../UserContext";
 
 function Tours({ handleTourId }) {
+ 
   const {user,setUser} = useContext(UserContext);
   const {tours} = useTours()
-  
+  if(!user){return(<><h2>No User!</h2></>)}
   
   // useEffect(() => {
 
@@ -28,7 +29,7 @@ function Tours({ handleTourId }) {
   //   }
   //   fetchTours();
   // }, [])
-
+  
   return (
     <div>
       <Container>
