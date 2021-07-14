@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { UserContext } from "../UserContext";
 
 const SelectTour = ({ id, imageUrl, tour_name, handleTourId }) => {
+
+  const {user,setUser} = useContext(UserContext);
   const history = useHistory();
 
   const handleViewClick = () => {
     history.push(`/tours/${id}`);
   };
   console.log(imageUrl)
+  if(!user){return(<><h2>No User!</h2></>)}
   return (
     
     <div className="list-tour">

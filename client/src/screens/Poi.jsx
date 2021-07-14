@@ -4,31 +4,31 @@ import { API } from 'aws-amplify';
 import { listTracks } from '../graphql/queries';
 import { UserContext } from "../UserContext";
 
-const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
+//const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
 
-function Poi(props) {
+function Poi({language, tour_id, poi_id}) {
   const {user,setUser} = useContext(UserContext);
   const [tracks, setTracks] = useState([])
-
+  
   useEffect(() => {
     const ac = new AbortController();
+    const opts = { signal: ac.signal };
     const fetchTrack = async () => {
       // Query with filters, limits, and pagination
-      let filter = {
-        and: [{ language: {eq: props.language} },
-        {pointOfInterestId: {eq: props.poi_id}}]
-      };
+      
+       let filter = {
+         and: [{ language: {eq: language} },
+         {pointOfInterestId: {eq: poi_id}}]
+       };
       try {
-        const result = await API.graphql({ query: listTracks, variables: { filter: filter}});
+        const result = await API.graphql({ query: listTracks, variables: { filter: filter}}, {opts} );
         if (result.data){
-          console.log("yay")
+          console.log(result.data)
           setTracks(result.data.listTracks.items)
         }else{
-          console.log("nay")
           setTracks([])
         }
       } catch (error) {
-        console.log("uhoh")
         console.log(error)
       }
     }
@@ -36,7 +36,11 @@ function Poi(props) {
     fetchTrack();
     return () => ac.abort(); // Abort both fetches on unmount
     
-  },[props.language, props.poi_id, tracks]);
+  },[language, poi_id]);
+
+
+  if(!user){return(<><h2>No User!</h2></>)}
+
 
   return (
     <Container>
@@ -86,17 +90,18 @@ function Poi(props) {
           </Mask1>
         </Mask>
       </MediaPlayer>
-      <audio controls preload="auto">
-        <source src={tracks[0].audioUrl} type="audio/mp3"/>
-      </audio>
+      
+       { tracks.length !==0 && <audio controls preload = 'auto'>
+        {<source src={tracks[0].audioUrl} type="audio/mp3"/> }
+      </audio> }
     
     
       <DetailsContainer>
         <TitleContainer>
-          <NamePOI>{tracks[0].name}</NamePOI>
+          {/* <NamePOI>{tracks[0].name}</NamePOI> */}
         </TitleContainer>
         <Description>
-          {tracks[0].name}
+          {/* {tracks[0].name} */}
         </Description>
         <ExpanderContainer>
           <ViewFullTextRow>
@@ -155,12 +160,12 @@ const Mask = styled.div`
   flex-direction: column;
   display: flex;
 `;
-
+// background-image: url(${image_url});
 const Mask1 = styled.div`
   height: 243px;
   width: 400px;
   overflow: hidden;
-  background-image: url(${image_url});
+  
   background-size: cover;
   background-position: center;
   background-color: rgba(0,0,0,0.3);

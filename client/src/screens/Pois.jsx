@@ -6,11 +6,13 @@ import { useHistory } from "react-router-dom"
 import { listPointOfInterests } from '../graphql/queries';
 import { UserContext } from "../UserContext";
 
-function Pois({tour_id, language, handlePoiId}) {
+function Pois({tour_id, language, tour_name, handlePoiId}) {
   const {user,setUser} = useContext(UserContext);
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
   const [tour, setTour] = useState({});
   const history = useHistory()
+
+ 
 
   useEffect(() => {
     
@@ -34,15 +36,17 @@ function Pois({tour_id, language, handlePoiId}) {
     }
     
     fetchPointsOfInterest();
-  }, [tour_id])
+  }, [tour_id] );
+
+  if(!user){return(<><h2>No User!</h2></>)}
 
   const handleClick = (id) => {
-    history.push(`/tours/${tour.id}/pois/${id}`)
+    history.push(`/tours/${tour_id}/pois/${id}`)
   }
 
   return (
     <Container>
-      <Title>{tour.name}</Title>
+      <Title>{tour_name}</Title>
       <Grid>
         {pointsOfInterest.map((poi, i) => (
           <TrackContainer key={poi.id}>

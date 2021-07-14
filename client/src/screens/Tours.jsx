@@ -11,7 +11,7 @@ function Tours({ handleTourId }) {
  
   const {user,setUser} = useContext(UserContext);
   const {tours} = useTours()
-  if(!user){return(<><h2>No User!</h2></>)}
+  
   
   // useEffect(() => {
 
@@ -29,6 +29,7 @@ function Tours({ handleTourId }) {
   //   }
   //   fetchTours();
   // }, [])
+  if(!user){return(<><h2>No User!</h2></>)}
   
   return (
     <div>
@@ -70,9 +71,9 @@ const ToursContainer = styled.div`
   width: 50vw;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  
 `;
-
+// overflow: auto;
 
 const SelectHeader = styled.div`
   margin-top: 20px;
