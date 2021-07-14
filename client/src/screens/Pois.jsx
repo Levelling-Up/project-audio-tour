@@ -5,26 +5,12 @@ import { useHistory } from "react-router-dom"
 //import { poisDB, toursDB } from "../database.js";
 import { getTour, listPointOfInterests } from '../graphql/queries';
 
-function Pois({tour_id, language, handlePoiId}) {
+function Pois({tour_id, language, tour_name, handlePoiId}) {
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
   const [tour, setTour] = useState({});
   const history = useHistory()
 
   useEffect(() => {
-    // const fetchTour = async () => {
-    //   try {
-    //     //TODO there's a problem with this fetch request
-    //     const result = await API.graphql(graphqlOperation(getTour, { id: tour_id }));
-    //     if (result.data){
-    //       setTour(result.data.getTour);
-    //     }else{
-    //       setTour([])
-    //     }
-    //   } catch(error){
-    //     console.log(error)
-    //   }
-    // }
-    // fetchTour();
     //console.log(tour);
     const fetchPointsOfInterest = async () => {
       // Query with filters, limits, and pagination
@@ -46,15 +32,15 @@ function Pois({tour_id, language, handlePoiId}) {
     }
     
     fetchPointsOfInterest();
-  }, [tour_id, tour])
+  }, [tour_id] );
 
   const handleClick = (id) => {
-    history.push(`/tours/${tour.id}/pois/${id}`)
+    history.push(`/tours/${tour_id}/pois/${id}`)
   }
 
   return (
     <Container>
-      <Title>{tour.name}</Title>
+      <Title>{tour_name}</Title>
       <Grid>
         {pointsOfInterest.map((poi, i) => (
           <TrackContainer key={poi.id}>

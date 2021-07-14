@@ -76,7 +76,7 @@ function App() {
         </Route>
 
         <Route path="/tours/:id/pois" exact>
-          <Pois language = {language} tour_id = {tour_id} handlePoiId = {handlePoiId}/>
+          <Pois language = {language} tour_id = {tour_id} tour_name = {tour_name} handlePoiId = {handlePoiId}/>
         </Route>
 
         <Route path="/tours/:tour_id/pois/:id">
