@@ -22,7 +22,6 @@ const UseTours = () => {
     fetchTours();
   }, [])
 
-  //setTours(tracksDB);
   return {
     tours: tours
   };
