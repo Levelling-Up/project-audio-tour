@@ -50,7 +50,8 @@ function Login(props) {
           setUser(result.data.listCodes.items[0].email)
           history.push("/tours")
         }else{
-          console.log("error, we could not find any evidence of you having purchased this code")
+          //console.log("error, we could not find any evidence of you having purchased this code")
+          if(challenge.email){alert("error, we could not find any evidence of you having purchased this code");}
         }
       } catch (error) {
         console.log(error)
