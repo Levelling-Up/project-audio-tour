@@ -1,54 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { API } from 'aws-amplify';
 import { listTracks } from '../graphql/queries';
-
-//const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
+import { UserContext } from "../UserContext";
 
 function Poi({language, tour_id, poi_id}) {
+  const { user } = useContext(UserContext);
   const [tracks, setTracks] = useState([])
-
-  // useEffect(() => {
-  //   const ac = new AbortController();
-  //   const fetchTrack = async () => {
-  //     // Query with filters, limits, and pagination
-  //     let filter = {
-  //       and: [{ language: {eq: props.language} },
-  //       {pointOfInterestId: {eq: props.poi_id}}]
-  //     };
-  //     try {
-  //       const result = await API.graphql({ query: listTracks, variables: { filter: filter}});
-  //       if (result.data){
-  //         console.log("yay")
-  //         console.log(result.data)
-  //         setTracks(result.data.listTracks.items)
-  //       }else{
-  //         console.log("nay")
-  //         setTracks([])
-  //       }
-  //     } catch (error) {
-  //       console.log("uhoh")
-  //       console.log(error)
-  //     }
-  //   }
-    
-  //   fetchTrack();
-  //   return () => ac.abort(); // Abort both fetches on unmount
-    
-  // },[props.language, props.poi_id, tracks]);
-
-
-
-
-
-
-  // 
   
   useEffect(() => {
     const ac = new AbortController();
     const opts = { signal: ac.signal };
     const fetchTrack = async () => {
-      // Query with filters, limits, and pagination
       
        let filter = {
          and: [{ language: {eq: language} },
@@ -57,16 +20,12 @@ function Poi({language, tour_id, poi_id}) {
       try {
         const result = await API.graphql({ query: listTracks, variables: { filter: filter}}, {opts} );
         if (result.data){
-          console.log("yay")
           console.log(result.data)
           setTracks(result.data.listTracks.items)
-          console.log(tracks)
         }else{
-          console.log("nay")
           setTracks([])
         }
       } catch (error) {
-        console.log("uhoh")
         console.log(error)
       }
     }
@@ -77,7 +36,7 @@ function Poi({language, tour_id, poi_id}) {
   },[language, poi_id]);
 
 
-
+  if(!user){return(<><h2>No User!</h2></>)}
 
 
   return (

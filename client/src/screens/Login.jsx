@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { listCodes } from '../graphql/queries';
 import InputWithLabel from "../components/InputWithLabel";
 import { API } from 'aws-amplify';
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 function Login(props) {
-  
+  const {user,setUser} = useContext(UserContext);
   const [userData, setUserData] = useState({email: "", code: ""});
   const [challenge, setChallenge] = useState({email: "", code: ""});
   const history = useHistory();
@@ -46,6 +47,7 @@ function Login(props) {
         const result = await API.graphql({ query: listCodes, variables: { filter: filter}});
         if (result.data.listCodes.items[0]){
           console.log(result.data.listCodes.items[0])
+          setUser(result.data.listCodes.items[0].email)
           history.push("/tours")
         }else{
           console.log("error, we could not find any evidence of you having purchased this code")
@@ -67,10 +69,12 @@ function Login(props) {
       <Group>
         <InputWithLabel id="email-input" label="Email:" value={userData.email} onInputChange={handleInput} ></InputWithLabel>
         <InputWithLabel id="code-input" type="number" label="Code:" value={userData.code} onInputChange={handleInput} ></InputWithLabel>
-        <SubmitButton onClick={() => {
-          setChallenge({ code: userData.code, email: userData.email }
-          );
-        }} >Submit</SubmitButton>
+        {user ? <SubmitButton onClick={() => {
+          setUser(null);
+        }} >LogOut</SubmitButton>
+         : <SubmitButton onClick={() => {
+          setChallenge({ code: userData.code, email: userData.email });
+        }} >Submit</SubmitButton>}
 
         <Text>Or scan your QR code here:</Text>
       </Group>

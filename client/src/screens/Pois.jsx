@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { API, graphqlOperation } from 'aws-amplify';
+import React, { useEffect, useState, useContext } from "react";
+import { API } from 'aws-amplify';
 import styled from "styled-components";
 import { useHistory } from "react-router-dom"
 //import { poisDB, toursDB } from "../database.js";
-import { getTour, listPointOfInterests } from '../graphql/queries';
+import { listPointOfInterests } from '../graphql/queries';
+import { UserContext } from "../UserContext";
 
 function Pois({tour_id, language, tour_name, handlePoiId}) {
+  const { user } = useContext(UserContext);
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
-  const [tour, setTour] = useState({});
   const history = useHistory()
 
+ 
+
   useEffect(() => {
-    //console.log(tour);
+    
     const fetchPointsOfInterest = async () => {
       // Query with filters, limits, and pagination
       let filter = {
@@ -33,6 +36,8 @@ function Pois({tour_id, language, tour_name, handlePoiId}) {
     
     fetchPointsOfInterest();
   }, [tour_id] );
+
+  if(!user){return(<><h2>No User!</h2></>)}
 
   const handleClick = (id) => {
     history.push(`/tours/${tour_id}/pois/${id}`)
