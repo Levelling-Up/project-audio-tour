@@ -2,9 +2,11 @@ type Track @model @key(name: "byTrack", fields: ["id"])
   @key(name: "byPOI", fields: ["pointOfInterestId"])
   @key(name: "byPoiByLang", fields: ["pointOfInterestId", "language"]) {
   id: ID!
+  order: String!
   name: String!
   language: String!
   audioUrl: String!
+  imageUrl: String!
   pointOfInterestId: ID!
 }
 
