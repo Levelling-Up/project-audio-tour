@@ -1,34 +1,14 @@
-import React, { useEffect , useState, useContext} from "react";
-import { API, graphqlOperation } from 'aws-amplify';
+import React, { useContext } from "react";
 import styled from "styled-components";
-//import { toursDB } from "../database.js";
 import SelectTour from "../components/SelectTour";
-import { listTours } from '../graphql/queries';
 import useTours from '../Hooks/useTours'
 import { UserContext } from "../UserContext";
 
 function Tours({ handleTourId }) {
  
-  const {user,setUser} = useContext(UserContext);
-  const {tours} = useTours()
+  const { user } = useContext(UserContext);
+  const { tours } = useTours()
   
-  
-  // useEffect(() => {
-
-  //   const fetchTours = async () => {
-  //     try {
-  //       const result = await API.graphql(graphqlOperation(listTours));
-  //       if (result.data){
-  //         setTours(result.data.listTours.items)
-  //       }else{
-  //         setTours([])
-  //       }
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   fetchTours();
-  // }, [])
   if(!user){return(<><h2>No User!</h2></>)}
   
   return (

@@ -4,17 +4,14 @@ import { API } from 'aws-amplify';
 import { listTracks } from '../graphql/queries';
 import { UserContext } from "../UserContext";
 
-//const image_url = "https://canaltouraudiofiles.s3.eu-west-2.amazonaws.com/Track+1+Welcome.jpg";
-
 function Poi({language, tour_id, poi_id}) {
-  const {user,setUser} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [tracks, setTracks] = useState([])
   
   useEffect(() => {
     const ac = new AbortController();
     const opts = { signal: ac.signal };
     const fetchTrack = async () => {
-      // Query with filters, limits, and pagination
       
        let filter = {
          and: [{ language: {eq: language} },

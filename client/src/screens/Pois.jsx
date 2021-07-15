@@ -7,9 +7,8 @@ import { listPointOfInterests } from '../graphql/queries';
 import { UserContext } from "../UserContext";
 
 function Pois({tour_id, language, tour_name, handlePoiId}) {
-  const {user,setUser} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [ pointsOfInterest, setPointsOfInterest ] = useState([]);
-  const [tour, setTour] = useState({});
   const history = useHistory()
 
  

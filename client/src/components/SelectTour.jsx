@@ -5,7 +5,7 @@ import { UserContext } from "../UserContext";
 
 const SelectTour = ({ id, imageUrl, tour_name, handleTourId }) => {
 
-  const {user,setUser} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const history = useHistory();
 
   const handleViewClick = () => {
