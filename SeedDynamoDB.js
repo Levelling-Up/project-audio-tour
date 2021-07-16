@@ -12,6 +12,7 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
 */
+var uuid = require('uuid');
 var AWS = require("aws-sdk");
 var fs = require('fs');
 //var Amplify = require("@aws-amplify/core");
@@ -34,7 +35,9 @@ var fs = require('fs');
 
 AWS.config.update({
     region: "eu-west-2",
-    endpoint: "http://localhost:8000"
+    endpoint: "http://dynamodb.eu-west-2.amazonaws.com",
+    accessKeyId: "<enter-value>",
+    secretAccessKey: "<enter-value>"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
@@ -92,8 +95,9 @@ console.log("Importing tracks into DynamoDB. Please wait.");
 var allTracks = JSON.parse(fs.readFileSync('tracksdata.json', 'utf8'));
 allTracks.forEach(function(track) {
     var params = {
-        TableName: "Track",
+        TableName: "Track-gczsjo6h5bfvxjtab3pfsd6v2m-dev",
         Item: {
+            "id": uuid.v1(),
             "order": track.order,
             "name":  track.name,
             "language": track.language,
